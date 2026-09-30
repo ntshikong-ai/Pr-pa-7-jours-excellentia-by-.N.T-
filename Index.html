@@ -1,0 +1,1185 @@
+
+  <!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Préparation Excellentia RDC - Test 100 Questions</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f5f8;
+    margin: 0;
+    padding: 15px;
+    color: #222;
+}
+
+.quiz-container {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid #1769aa;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.badge {
+    background: #1769aa;
+    color: white;
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.timer {
+    background: #ffe5e5;
+    color: #c62828;
+    padding: 8px 12px;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.progress {
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #1769aa;
+    width: 0%;
+    transition: width 0.3s;
+}
+
+.question-number {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.question {
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option {
+    width: 100%;
+    padding: 14px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #eef6ff;
+    border-color: #1769aa;
+}
+
+.option.selected {
+    background: #dceeff;
+    border: 2px solid #1769aa;
+}
+
+.next-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background: #16803c;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.next-btn:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+}
+
+.result {
+    text-align: center;
+}
+
+.score {
+    font-size: 38px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.result button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background: #1769aa;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.review {
+    margin-top: 25px;
+    text-align: left;
+}
+
+.review-item {
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background: #f5f5f5;
+}
+
+.correct {
+    border-left: 5px solid #16803c;
+}
+
+.incorrect {
+    border-left: 5px solid #c62828;
+}
+
+.hidden {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+
+    <div id="quiz">
+
+        <div class="header">
+            <span id="subject" class="badge">Matière</span>
+            <span class="timer">
+                Temps : <span id="time">45</span>s
+            </span>
+        </div>
+
+        <div class="progress">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+        <div id="number" class="question-number"></div>
+
+        <div id="question" class="question"></div>
+
+        <div id="options" class="options"></div>
+
+        <button id="nextButton" class="next-btn" disabled>
+            Question suivante
+        </button>
+
+    </div>
+
+    <div id="result" class="result hidden">
+
+        <h2>Test terminé</h2>
+
+        <div class="score">
+            <span id="finalScore">0</span>/100
+        </div>
+
+        <h3>
+            Pourcentage : <span id="percentage">0%</span>
+        </h3>
+
+        <p id="message"></p>
+
+        <button onclick="restartQuiz()">
+            Recommencer le test
+        </button>
+
+        <button onclick="showReview()">
+            Voir la correction
+        </button>
+
+        <div id="review" class="review hidden"></div>
+
+    </div>
+
+</div>
+
+<script>
+
+const questions = [
+
+/* =========================
+   CULTURE GÉNÉRALE
+========================= */
+
+{
+subject:"Culture générale",
+question:"En quelle année le Congo belge a-t-il accédé à l'indépendance ?",
+options:["1958","1959","1960","1965"],
+answer:2
+},
+
+{
+subject:"Culture générale",
+question:"Quelle est la capitale de la République démocratique du Congo ?",
+options:["Lubumbashi","Kinshasa","Kisangani","Mbuji-Mayi"],
+answer:1
+},
+
+{
+subject:"Culture générale",
+question:"Quel fleuve traverse la ville de Kinshasa ?",
+options:["Le Congo","Le Nil","Le Niger","Le Zambèze"],
+answer:0
+},
+
+{
+subject:"Culture générale",
+question:"Quel est le plus grand océan du monde ?",
+options:["Atlantique","Indien","Arctique","Pacifique"],
+answer:3
+},
+
+{
+subject:"Culture générale",
+question:"Quel pays est appelé le pays du Soleil-Levant ?",
+options:["Chine","Japon","Corée du Sud","Thaïlande"],
+answer:1
+},
+
+{
+subject:"Culture générale",
+question:"Combien de provinces compte actuellement la RDC ?",
+options:["10","11","25","26"],
+answer:3
+},
+
+{
+subject:"Culture générale",
+question:"Quelle ville est le chef-lieu du Haut-Katanga ?",
+options:["Kolwezi","Likasi","Lubumbashi","Kipushi"],
+answer:2
+},
+
+{
+subject:"Culture générale",
+question:"Quel est le symbole chimique du cuivre ?",
+options:["Co","Cu","Cr","Ca"],
+answer:1
+},
+
+{
+subject:"Culture générale",
+question:"En quelle année la conférence de Berlin sur l'Afrique a-t-elle commencé ?",
+options:["1875","1884","1890","1908"],
+answer:1
+},
+
+{
+subject:"Culture générale",
+question:"Qui fut le premier Premier ministre de la République du Congo indépendant ?",
+options:["Joseph Kasa-Vubu","Patrice Lumumba","Mobutu Sese Seko","Moïse Tshombe"],
+answer:1
+},
+
+{
+subject:"Culture générale",
+question:"Quel est le siège principal de l'Union africaine ?",
+options:["Nairobi","Addis-Abeba","Kinshasa","Le Caire"],
+answer:1
+},
+
+{
+subject:"Culture générale",
+question:"Quelle est la monnaie officielle de la RDC ?",
+options:["Franc CFA","Dollar congolais","Franc congolais","Shilling"],
+answer:2
+},
+
+{
+subject:"Culture générale",
+question:"Quel continent possède le plus grand nombre de pays ?",
+options:["Europe","Afrique","Asie","Amérique"],
+answer:1
+},
+
+{
+subject:"Culture générale",
+question:"Quelle planète est surnommée la planète rouge ?",
+options:["Vénus","Mars","Jupiter","Mercure"],
+answer:1
+},
+
+{
+subject:"Culture générale",
+question:"Quel organe pompe le sang dans le corps humain ?",
+options:["Le foie","Le poumon","Le cœur","Le rein"],
+answer:2
+},
+
+{
+subject:"Culture générale",
+question:"Quel gaz est principalement nécessaire à la respiration humaine ?",
+options:["Azote","Oxygène","Hydrogène","Hélium"],
+answer:1
+},
+
+{
+subject:"Culture générale",
+question:"Quelle est la capitale de la Zambie ?",
+options:["Harare","Lusaka","Lilongwe","Gaborone"],
+answer:1
+},
+
+{
+subject:"Culture générale",
+question:"Quel est le plus grand désert chaud du monde ?",
+options:["Gobi","Kalahari","Sahara","Atacama"],
+answer:2
+},
+
+{
+subject:"Culture générale",
+question:"Quel instrument permet de mesurer la température ?",
+options:["Baromètre","Thermomètre","Hygromètre","Altimètre"],
+answer:1
+},
+
+{
+subject:"Culture générale",
+question:"Quel est le siège de l'ONU ?",
+options:["Paris","Genève","New York","Washington"],
+answer:2
+},
+
+{
+subject:"Culture générale",
+question:"Quel métal est principalement associé à la ceinture cuprifère du Katanga ?",
+options:["Cuivre","Argent","Aluminium","Étain"],
+answer:0
+},
+
+{
+subject:"Culture générale",
+question:"Quel est le plus grand continent par superficie ?",
+options:["Afrique","Europe","Asie","Amérique du Sud"],
+answer:2
+},
+
+{
+subject:"Culture générale",
+question:"Quelle est la langue officielle de la RDC ?",
+options:["Lingala","Swahili","Français","Kikongo"],
+answer:2
+},
+
+{
+subject:"Culture générale",
+question:"Quel est le nombre de membres permanents du Conseil de sécurité de l'ONU ?",
+options:["3","4","5","6"],
+answer:2
+},
+
+{
+subject:"Culture générale",
+question:"Quel est le principal organe judiciaire de l'ONU ?",
+options:["CPI","CIJ","UNESCO","OMS"],
+answer:1
+},
+
+/* =========================
+   FRANÇAIS
+========================= */
+
+{
+subject:"Français",
+question:"Quelle phrase est correctement écrite ?",
+options:[
+"Les élèves que j'ai rencontré sont sérieux.",
+"Les élèves que j'ai rencontrés sont sérieux.",
+"Les élèves que j'ai rencontrées sont sérieux.",
+"Les élèves que j'ai rencontrer sont sérieux."
+],
+answer:1
+},
+
+{
+subject:"Français",
+question:"Quel est le synonyme de « perspicace » ?",
+options:["Distrait","Lucide","Lent","Ignorant"],
+answer:1
+},
+
+{
+subject:"Français",
+question:"Dans « Il travaille rapidement », quelle est la fonction de « rapidement » ?",
+options:["Adjectif","Nom","Adverbe","Pronom"],
+answer:2
+},
+
+{
+subject:"Français",
+question:"Quel est le pluriel correct de « cheval » ?",
+options:["Chevals","Chevaux","Chevaus","Chevales"],
+answer:1
+},
+
+{
+subject:"Français",
+question:"Quel mot est correctement orthographié ?",
+options:["Acceuillir","Accueillir","Acueillir","Accueuillir"],
+answer:1
+},
+
+{
+subject:"Français",
+question:"Dans « La fille dont je parle est absente », « dont » est un :",
+options:["Pronom relatif","Déterminant","Adverbe","Adjectif"],
+answer:0
+},
+
+{
+subject:"Français",
+question:"Quel est le contraire de « éphémère » ?",
+options:["Passager","Durable","Fragile","Bref"],
+answer:1
+},
+
+{
+subject:"Français",
+question:"Quelle phrase contient un complément d'objet direct ?",
+options:[
+"Il parle à son frère.",
+"Elle pense à son avenir.",
+"Paul mange une pomme.",
+"Nous allons au marché."
+],
+answer:2
+},
+
+{
+subject:"Français",
+question:"Quel est le féminin de « acteur » ?",
+options:["Acteuse","Actrice","Acteure","Actriceuse"],
+answer:1
+},
+
+{
+subject:"Français",
+question:"Quel temps est utilisé dans « Il avait terminé son travail » ?",
+options:["Passé simple","Plus-que-parfait","Passé composé","Imparfait"],
+answer:1
+},
+
+{
+subject:"Français",
+question:"Quel est le participe passé du verbe « résoudre » ?",
+options:["Résolu","Résous","Résoudé","Résout"],
+answer:0
+},
+
+{
+subject:"Français",
+question:"Quel mot est un déterminant démonstratif ?",
+options:["Leur","Ce","Qui","Très"],
+answer:1
+},
+
+{
+subject:"Français",
+question:"Dans « Nous leur avons parlé », « leur » est :",
+options:["COD","COI","Sujet","Attribut"],
+answer:1
+},
+
+{
+subject:"Français",
+question:"Quel est le bon homophone dans « Il a ___ raison » ?",
+options:["À","A","Ah","As"],
+answer:1
+},
+
+{
+subject:"Français",
+question:"Quelle figure de style compare explicitement deux éléments avec « comme » ?",
+options:["Métaphore","Comparaison","Hyperbole","Personnification"],
+answer:1
+},
+
+{
+subject:"Français",
+question:"Quel est le contraire de « généreux » ?",
+options:["Altruiste","Prodigue","Avare","Patient"],
+answer:2
+},
+
+{
+subject:"Français",
+question:"Quelle proposition est subordonnée dans « Je partirai lorsque tu arriveras » ?",
+options:[
+"Je partirai",
+"lorsque tu arriveras",
+"tu",
+"partirai"
+],
+answer:1
+},
+
+{
+subject:"Français",
+question:"Quel mode verbal exprime notamment le doute, le souhait ou la nécessité ?",
+options:["Indicatif","Subjonctif","Infinitif","Participe"],
+answer:1
+},
+
+{
+subject:"Français",
+question:"Quelle forme est correcte ?",
+options:[
+"Bien qu'il est raison.",
+"Bien qu'il ait raison.",
+"Bien qu'il a raison.",
+"Bien qu'il aura raison."
+],
+answer:1
+},
+
+{
+subject:"Français",
+question:"Dans « Cette décision est importante », « importante » est :",
+options:["COD","Attribut du sujet","COI","Adverbe"],
+answer:1
+},
+
+{
+subject:"Français",
+question:"Quel est le féminin de « héros » ?",
+options:["Héroïne","Hérosse","Héroesse","Héroïse"],
+answer:0
+},
+
+{
+subject:"Français",
+question:"Quel mot signifie « ambigu » ?",
+options:["Clair","Évident","Susceptible de plusieurs interprétations","Faux"],
+answer:2
+},
+
+{
+subject:"Français",
+question:"Quelle phrase est correctement accordée ?",
+options:[
+"Les lettres que j'ai écrit.",
+"Les lettres que j'ai écrites.",
+"Les lettres que j'ai écrite.",
+"Les lettres que j'ai écrits."
+],
+answer:1
+},
+
+{
+subject:"Français",
+question:"Quel est le temps de « nous eûmes terminé » ?",
+options:["Passé antérieur","Plus-que-parfait","Futur antérieur","Passé composé"],
+answer:0
+},
+
+{
+subject:"Français",
+question:"Quel mot est un pronom personnel ?",
+options:["Lequel","Rapidement","Maison","Grand"],
+answer:0
+},
+
+/* =========================
+   ANGLAIS
+========================= */
+
+{
+subject:"English",
+question:"Choose the correct answer: She ___ to school every day.",
+options:["go","goes","going","gone"],
+answer:1
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: They ___ football yesterday.",
+options:["play","played","have play","playing"],
+answer:1
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: I have lived here ___ 2020.",
+options:["for","since","during","by"],
+answer:1
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: If I ___ enough money, I would travel.",
+options:["have","had","will have","would have"],
+answer:1
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: She doesn't ___ coffee.",
+options:["likes","like","liked","liking"],
+answer:1
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: This book is ___ than that one.",
+options:["interesting","more interesting","most interesting","interest"],
+answer:1
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: He is ___ honest man.",
+options:["a","an","the","no article"],
+answer:1
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: We ___ dinner when he arrived.",
+options:["eat","were eating","have eaten","eating"],
+answer:1
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: The letter ___ yesterday.",
+options:["was sent","sent","is send","has send"],
+answer:0
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: You ___ study harder for the exam.",
+options:["should","would","might to","can to"],
+answer:0
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: I am interested ___ accounting.",
+options:["on","at","in","for"],
+answer:2
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: She has ___ finished her work.",
+options:["already","yet","still","ever"],
+answer:0
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: How long ___ you been studying English?",
+options:["has","have","are","did"],
+answer:1
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: He ___ his homework before going out.",
+options:["had finished","has finish","finish","finishing"],
+answer:0
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: The opposite of 'weak' is:",
+options:["small","strong","slow","short"],
+answer:1
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: 'Thankful' means:",
+options:["angry","grateful","weak","afraid"],
+answer:1
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: She ___ English for five years.",
+options:["studies","has studied","study","studied yesterday"],
+answer:1
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: By next year, I ___ my studies.",
+options:["finish","finished","will have finished","have finish"],
+answer:2
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: If it rains, we ___ at home.",
+options:["stay","will stay","would stayed","stayed"],
+answer:1
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: He is good ___ mathematics.",
+options:["in","at","on","for"],
+answer:1
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: The students ___ by the teacher.",
+options:["were encouraged","encouraged","was encourage","have encourage"],
+answer:0
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: I haven't seen him ___ Monday.",
+options:["for","since","during","until"],
+answer:1
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: 'Give up' means:",
+options:["continue","abandon","start","increase"],
+answer:1
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: Neither John nor Peter ___ ready.",
+options:["are","were","is","be"],
+answer:2
+},
+
+{
+subject:"English",
+question:"Choose the correct answer: She speaks English ___ than I do.",
+options:["better","good","best","well"],
+answer:0
+},
+
+/* =========================
+   MATHS / LOGIQUE
+========================= */
+
+{
+subject:"Maths / Logique",
+question:"Quelle est la somme des racines de 2x² - 8x + 6 = 0 ?",
+options:["2","4","-4","3"],
+answer:1
+},
+
+{
+subject:"Maths / Logique",
+question:"Si 3x + 5 = 20, quelle est la valeur de x ?",
+options:["3","5","7","8"],
+answer:1
+},
+
+{
+subject:"Maths / Logique",
+question:"Combien vaut √81 ?",
+options:["7","8","9","10"],
+answer:2
+},
+
+{
+subject:"Maths / Logique",
+question:"Quel est le résultat de 3/4 + 1/4 ?",
+options:["1/2","1","3/8","4/8"],
+answer:1
+},
+
+{
+subject:"Maths / Logique",
+question:"Quel est le carré de 12 ?",
+options:["124","144","132","154"],
+answer:1
+},
+
+{
+subject:"Maths / Logique",
+question:"Si f(x)=2x+3, combien vaut f(4) ?",
+options:["8","10","11","12"],
+answer:2
+},
+
+{
+subject:"Maths / Logique",
+question:"Quelle est la valeur de 2³ × 2² ?",
+options:["16","32","64","128"],
+answer:1
+},
+
+{
+subject:"Maths / Logique",
+question:"Un article coûte 20 000 FC et augmente de 10 %. Quel est son nouveau prix ?",
+options:["20 100 FC","21 000 FC","22 000 FC","30 000 FC"],
+answer:2
+},
+
+{
+subject:"Maths / Logique",
+question:"Quelle est la moyenne de 10, 15 et 20 ?",
+options:["12","15","18","20"],
+answer:1
+},
+
+{
+subject:"Maths / Logique",
+question:"Quel nombre complète la suite : 2, 4, 8, 16, ... ?",
+options:["20","24","30","32"],
+answer:3
+},
+
+{
+subject:"Maths / Logique",
+question:"Si x² = 49 et x > 0, alors x =",
+options:["-7","0","7","14"],
+answer:2
+},
+
+{
+subject:"Maths / Logique",
+question:"Quel est le PGCD de 18 et 24 ?",
+options:["3","6","9","12"],
+answer:1
+},
+
+{
+subject:"Maths / Logique",
+question:"Quel est le PPCM de 4 et 6 ?",
+options:["8","10","12","24"],
+answer:2
+},
+
+{
+subject:"Maths / Logique",
+question:"Un triangle a des angles de 50° et 60°. Le troisième angle vaut :",
+options:["60°","70°","80°","90°"],
+answer:1
+},
+
+{
+subject:"Maths / Logique",
+question:"Si 5 personnes réalisent un travail en 10 jours, combien de jours faudra-t-il à 10 personnes au même rythme ?",
+options:["2","5","10","20"],
+answer:1
+},
+
+{
+subject:"Maths / Logique",
+question:"Quel nombre manque : 3, 6, 12, 24, ... ?",
+options:["30","36","48","60"],
+answer:2
+},
+
+{
+subject:"Maths / Logique",
+question:"Un père a 40 ans et son fils 10 ans. Dans combien d'années le père aura-t-il deux fois l'âge du fils ?",
+options:["10","15","20","25"],
+answer:2
+},
+
+{
+subject:"Maths / Logique",
+question:"Si 20 % d'un nombre vaut 30, ce nombre vaut :",
+options:["100","120","150","180"],
+answer:2
+},
+
+{
+subject:"Maths / Logique",
+question:"Quelle est la valeur de |−7| ?",
+options:["−7","0","7","14"],
+answer:2
+},
+
+{
+subject:"Maths / Logique",
+question:"Si A > B et B > C, alors :",
+options:["A < C","A = C","A > C","B > A"],
+answer:2
+},
+
+{
+subject:"Maths / Logique",
+question:"Un train parcourt 120 km en 2 heures. Sa vitesse moyenne est :",
+options:["40 km/h","50 km/h","60 km/h","80 km/h"],
+answer:2
+},
+
+{
+subject:"Maths / Logique",
+question:"Quelle est l'aire d'un rectangle de longueur 8 cm et largeur 5 cm ?",
+options:["13 cm²","26 cm²","40 cm²","80 cm²"],
+answer:2
+},
+
+{
+subject:"Maths / Logique",
+question:"Un père regarde le portrait d'un homme. Il dit : « Je n'ai ni frère ni sœur, mais le père de cet homme est le fils de mon père. » Qui est l'homme du portrait ?",
+options:["Son frère","Son fils","Son père","Son cousin"],
+answer:1
+},
+
+{
+subject:"Maths / Logique",
+question:"Quel nombre complète la suite : 1, 4, 9, 16, 25, ... ?",
+options:["30","32","36","49"],
+answer:2
+},
+
+{
+subject:"Maths / Logique",
+question:"Si aujourd'hui est lundi, quel jour sera-t-on dans 10 jours ?",
+options:["Mercredi","Jeudi","Vendredi","Samedi"],
+answer:1
+}
+
+];
+
+let current = 0;
+let score = 0;
+let selected = null;
+let time = 45;
+let timer = null;
+let answers = [];
+
+const questionElement = document.getElementById("question");
+const optionsElement = document.getElementById("options");
+const subjectElement = document.getElementById("subject");
+const numberElement = document.getElementById("number");
+const timeElement = document.getElementById("time");
+const nextButton = document.getElementById("nextButton");
+const progressBar = document.getElementById("progressBar");
+
+function startTimer() {
+
+    clearInterval(timer);
+
+    time = 45;
+    timeElement.textContent = time;
+
+    timer = setInterval(() => {
+
+        time--;
+
+        timeElement.textContent = time;
+
+        if (time <= 0) {
+
+            clearInterval(timer);
+
+            answers.push({
+                question: questions[current].question,
+                selected: null,
+                correct: questions[current].options[questions[current].answer],
+                isCorrect: false
+            });
+
+            current++;
+
+            loadQuestion();
+        }
+
+    }, 1000);
+}
+
+function loadQuestion() {
+
+    if (current >= questions.length) {
+        finishQuiz();
+        return;
+    }
+
+    selected = null;
+    nextButton.disabled = true;
+
+    const q = questions[current];
+
+    subjectElement.textContent = q.subject;
+
+    numberElement.textContent =
+        `Question ${current + 1} sur ${questions.length}`;
+
+    questionElement.textContent = q.question;
+
+    progressBar.style.width =
+        `${(current / questions.length) * 100}%`;
+
+    optionsElement.innerHTML = "";
+
+    q.options.forEach((option, index) => {
+
+        const button = document.createElement("button");
+
+        button.className = "option";
+
+        button.textContent =
+            String.fromCharCode(65 + index) + ". " + option;
+
+        button.onclick = () => selectAnswer(index, button);
+
+        optionsElement.appendChild(button);
+    });
+
+    startTimer();
+}
+
+function selectAnswer(index, button) {
+
+    selected = index;
+
+    document.querySelectorAll(".option")
+        .forEach(btn => btn.classList.remove("selected"));
+
+    button.classList.add("selected");
+
+    nextButton.disabled = false;
+}
+
+nextButton.onclick = () => {
+
+    if (selected === null) return;
+
+    clearInterval(timer);
+
+    const q = questions[current];
+
+    const correct = selected === q.answer;
+
+    if (correct) score++;
+
+    answers.push({
+        question: q.question,
+        selected: q.options[selected],
+        correct: q.options[q.answer],
+        isCorrect: correct
+    });
+
+    current++;
+
+    loadQuestion();
+};
+
+function finishQuiz() {
+
+    clearInterval(timer);
+
+    document.getElementById("quiz")
+        .classList.add("hidden");
+
+    document.getElementById("result")
+        .classList.remove("hidden");
+
+    document.getElementById("finalScore")
+        .textContent = score;
+
+    const percentage =
+        Math.round((score / questions.length) * 100);
+
+    document.getElementById("percentage")
+        .textContent = percentage + "%";
+
+    let message = "";
+
+    if (percentage >= 90) {
+        message = "Excellent résultat.";
+    } else if (percentage >= 80) {
+        message = "Très bon résultat. Continuez la préparation.";
+    } else if (percentage >= 70) {
+        message = "Bon résultat. Il reste des points à renforcer.";
+    } else if (percentage >= 60) {
+        message = "Résultat moyen. Une révision supplémentaire est nécessaire.";
+    } else {
+        message = "Continuez à travailler et analysez vos erreurs.";
+    }
+
+    document.getElementById("message")
+        .textContent = message;
+}
+
+function showReview() {
+
+    const review = document.getElementById("review");
+
+    review.classList.remove("hidden");
+
+    review.innerHTML = "<h3>Correction</h3>";
+
+    answers.forEach((answer, index) => {
+
+        const div = document.createElement("div");
+
+        div.className =
+            "review-item " +
+            (answer.isCorrect ? "correct" : "incorrect");
+
+        div.innerHTML = `
+            <strong>Question ${index + 1}</strong><br><br>
+            ${answer.question}<br><br>
+
+            <strong>Votre réponse :</strong>
+            ${answer.selected === null ? "Aucune réponse" : answer.selected}
+            <br>
+
+            <strong>Bonne réponse :</strong>
+            ${answer.correct}
+        `;
+
+        review.appendChild(div);
+    });
+}
+
+function restartQuiz() {
+    location.reload();
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+          </html>
