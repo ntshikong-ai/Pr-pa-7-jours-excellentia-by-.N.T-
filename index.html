@@ -1,1185 +1,2401 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Préparation Excellentia RDC - Test 100 Questions</title>
+
+<title>Préparation Excellentia RDC — By N.T</title>
 
 <style>
-* {
-    box-sizing: border-box;
+
+*{
+    box-sizing:border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f2f5f8;
-    margin: 0;
-    padding: 15px;
-    color: #222;
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#eef2f7;
+    color:#17202a;
 }
 
-.quiz-container {
-    max-width: 700px;
-    margin: auto;
-    background: white;
-    padding: 22px;
-    border-radius: 15px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+.container{
+    max-width:800px;
+    margin:auto;
+    padding:15px;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 2px solid #1769aa;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
+.card{
+    background:white;
+    border-radius:16px;
+    padding:25px;
+    margin-top:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.10);
 }
 
-.badge {
-    background: #1769aa;
-    color: white;
-    padding: 7px 12px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: bold;
+.logo{
+    text-align:center;
+    font-size:30px;
+    font-weight:bold;
+    color:#145da0;
 }
 
-.timer {
-    background: #ffe5e5;
-    color: #c62828;
-    padding: 8px 12px;
-    border-radius: 7px;
-    font-weight: bold;
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
 }
 
-.progress {
-    height: 8px;
-    background: #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-bottom: 20px;
+.by{
+    text-align:center;
+    font-weight:bold;
+    margin-top:10px;
 }
 
-.progress-bar {
-    height: 100%;
-    background: #1769aa;
-    width: 0%;
-    transition: width 0.3s;
+input{
+    width:100%;
+    padding:14px;
+    border:1px solid #bbb;
+    border-radius:8px;
+    font-size:16px;
+    margin:10px 0 15px;
 }
 
-.question-number {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 12px;
+button{
+    border:none;
+    border-radius:9px;
+    padding:14px 18px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.question {
-    font-size: 19px;
-    font-weight: bold;
-    line-height: 1.5;
-    margin-bottom: 20px;
+.primary{
+    width:100%;
+    background:#145da0;
+    color:white;
 }
 
-.options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.secondary{
+    background:#555;
+    color:white;
 }
 
-.option {
-    width: 100%;
-    padding: 14px;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 9px;
-    text-align: left;
-    font-size: 16px;
-    cursor: pointer;
+.green{
+    background:#16803c;
+    color:white;
 }
 
-.option:hover {
-    background: #eef6ff;
-    border-color: #1769aa;
+.warning{
+    color:#b3261e;
+    font-weight:bold;
 }
 
-.option.selected {
-    background: #dceeff;
-    border: 2px solid #1769aa;
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    border-bottom:2px solid #145da0;
+    padding-bottom:15px;
+    margin-bottom:20px;
 }
 
-.next-btn {
-    width: 100%;
-    margin-top: 20px;
-    padding: 14px;
-    border: none;
-    border-radius: 9px;
-    background: #16803c;
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
+.badge{
+    background:#145da0;
+    color:white;
+    padding:8px 12px;
+    border-radius:7px;
+    font-weight:bold;
 }
 
-.next-btn:disabled {
-    background: #aaa;
-    cursor: not-allowed;
+.timer{
+    background:#ffe5e5;
+    color:#c62828;
+    padding:9px 13px;
+    border-radius:8px;
+    font-weight:bold;
 }
 
-.result {
-    text-align: center;
+.progress{
+    height:9px;
+    background:#ddd;
+    border-radius:10px;
+    overflow:hidden;
+    margin:15px 0;
 }
 
-.score {
-    font-size: 38px;
-    font-weight: bold;
-    margin: 20px;
+.progress-bar{
+    height:100%;
+    background:#145da0;
+    width:0%;
+    transition:.3s;
 }
 
-.result button {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 9px;
-    background: #1769aa;
-    color: white;
-    font-size: 17px;
-    cursor: pointer;
-    margin-top: 10px;
+.question-number{
+    color:#666;
+    font-size:14px;
 }
 
-.review {
-    margin-top: 25px;
-    text-align: left;
+.question{
+    font-size:20px;
+    font-weight:bold;
+    line-height:1.55;
+    margin:18px 0;
 }
 
-.review-item {
-    padding: 15px;
-    margin-bottom: 12px;
-    border-radius: 8px;
-    background: #f5f5f5;
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
 }
 
-.correct {
-    border-left: 5px solid #16803c;
+.option{
+    width:100%;
+    text-align:left;
+    background:white;
+    border:1px solid #bbb;
+    transition:.2s;
 }
 
-.incorrect {
-    border-left: 5px solid #c62828;
+.option:hover{
+    background:#edf6ff;
+    border-color:#145da0;
 }
 
-.hidden {
-    display: none;
+.option.selected{
+    background:#dceeff;
+    border:2px solid #145da0;
 }
+
+.next{
+    width:100%;
+    margin-top:20px;
+    background:#16803c;
+    color:white;
+}
+
+.next:disabled{
+    background:#aaa;
+    cursor:not-allowed;
+}
+
+.hidden{
+    display:none;
+}
+
+.reading-title{
+    font-size:24px;
+    font-weight:bold;
+    color:#145da0;
+}
+
+.reading-text{
+    background:#f7f9fb;
+    padding:20px;
+    border-left:5px solid #145da0;
+    line-height:1.8;
+    font-size:17px;
+    border-radius:8px;
+    max-height:500px;
+    overflow:auto;
+}
+
+.reading-timer{
+    text-align:center;
+    font-size:30px;
+    font-weight:bold;
+    color:#c62828;
+    margin:20px;
+}
+
+.score{
+    text-align:center;
+    font-size:50px;
+    font-weight:bold;
+    color:#145da0;
+}
+
+.result-line{
+    padding:12px;
+    background:#f4f6f8;
+    margin:8px 0;
+    border-radius:8px;
+}
+
+.error{
+    border-left:5px solid #c62828;
+    background:#fff4f4;
+    padding:15px;
+    margin:12px 0;
+    border-radius:8px;
+}
+
+.correct{
+    border-left:5px solid #16803c;
+    background:#f1fff5;
+}
+
+.small{
+    font-size:14px;
+    color:#666;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="quiz-container">
+<div class="container">
 
-    <div id="quiz">
+<!-- =========================
+     PAGE D'ACCUEIL
+========================= -->
 
-        <div class="header">
-            <span id="subject" class="badge">Matière</span>
-            <span class="timer">
-                Temps : <span id="time">45</span>s
-            </span>
-        </div>
+<div id="home" class="card">
 
-        <div class="progress">
-            <div id="progressBar" class="progress-bar"></div>
-        </div>
-
-        <div id="number" class="question-number"></div>
-
-        <div id="question" class="question"></div>
-
-        <div id="options" class="options"></div>
-
-        <button id="nextButton" class="next-btn" disabled>
-            Question suivante
-        </button>
-
+    <div class="logo">
+        PRÉPARATION EXCELLENTIA RDC
     </div>
 
-    <div id="result" class="result hidden">
-
-        <h2>Test terminé</h2>
-
-        <div class="score">
-            <span id="finalScore">0</span>/100
-        </div>
-
-        <h3>
-            Pourcentage : <span id="percentage">0%</span>
-        </h3>
-
-        <p id="message"></p>
-
-        <button onclick="restartQuiz()">
-            Recommencer le test
-        </button>
-
-        <button onclick="showReview()">
-            Voir la correction
-        </button>
-
-        <div id="review" class="review hidden"></div>
-
+    <div class="subtitle">
+        Test intensif — 100 questions
     </div>
+
+    <div class="by">
+        By N.T
+    </div>
+
+    <hr>
+
+    <h3>Présentation</h3>
+
+    <p>
+        Cette plateforme est destinée à l'entraînement intensif
+        aux épreuves de sélection.
+    </p>
+
+    <p>
+        Le test comporte quatre matières :
+    </p>
+
+    <ul>
+        <li>Français — 25 questions</li>
+        <li>Anglais — 25 questions</li>
+        <li>Mathématiques et logique — 25 questions</li>
+        <li>Culture générale — 25 questions</li>
+    </ul>
+
+    <p>
+        Chaque question dispose de <strong>60 secondes</strong>.
+    </p>
+
+    <p>
+        Deux textes de compréhension sont proposés :
+        un texte français et un texte anglais.
+        Chaque lecture dispose de <strong>15 minutes</strong>.
+    </p>
+
+    <p>
+        À la fin, le participant reçoit son score,
+        son pourcentage et le détail de ses erreurs.
+    </p>
+
+    <label><strong>Nom du participant</strong></label>
+
+    <input
+        id="participantName"
+        type="text"
+        placeholder="Exemple : Nathan"
+    >
+
+    <button class="primary" onclick="startTest()">
+        COMMENCER LE TEST
+    </button>
 
 </div>
 
+
+<!-- =========================
+     LECTURE FRANÇAISE
+========================= -->
+
+<div id="frenchReading" class="card hidden">
+
+    <div class="reading-title">
+        📖 Lecture — Français
+    </div>
+
+    <p>
+        Vous disposez de <strong>15 minutes</strong>
+        pour lire attentivement le texte.
+    </p>
+
+    <div id="frenchReadingTimer" class="reading-timer">
+        15:00
+    </div>
+
+    <div class="reading-text">
+
+        <h3>Le progrès et la responsabilité</h3>
+
+        <p>
+        Le progrès économique et technologique transforme profondément
+        les sociétés contemporaines. Les moyens de communication permettent
+        aujourd'hui à des personnes séparées par des milliers de kilomètres
+        d'échanger presque instantanément. Les entreprises peuvent accéder
+        à de nouveaux marchés et les étudiants disposent d'un volume
+        considérable d'informations.
+        </p>
+
+        <p>
+        Cependant, l'accès à la technologie ne garantit pas à lui seul
+        le développement. Une société peut disposer d'infrastructures
+        modernes tout en conservant des inégalités importantes si
+        l'éducation, la formation professionnelle et la qualité des
+        institutions ne progressent pas parallèlement.
+        </p>
+
+        <p>
+        Le véritable enjeu consiste donc à transformer les possibilités
+        offertes par le progrès en avantages durables pour la population.
+        Cela suppose une utilisation responsable des ressources,
+        un investissement dans le capital humain et une capacité à
+        distinguer l'innovation utile de la simple nouveauté.
+        </p>
+
+        <p>
+        Le progrès doit ainsi être considéré non seulement comme une
+        augmentation des capacités techniques, mais aussi comme une
+        amélioration de la capacité collective à résoudre des problèmes.
+        Une technologie n'a de valeur sociale durable que lorsqu'elle
+        contribue à répondre efficacement à des besoins réels.
+        </p>
+
+    </div>
+
+    <br>
+
+    <button id="startFrenchQuestions" class="primary" onclick="startFrenchQuestions()" disabled>
+        Commencer les questions
+    </button>
+
+</div>
+
+
+<!-- =========================
+     LECTURE ANGLAISE
+========================= -->
+
+<div id="englishReading" class="card hidden">
+
+    <div class="reading-title">
+        📖 Reading — English
+    </div>
+
+    <p>
+        You have <strong>15 minutes</strong> to read the text carefully.
+    </p>
+
+    <div id="englishReadingTimer" class="reading-timer">
+        15:00
+    </div>
+
+    <div class="reading-text">
+
+        <h3>Education, Skills and Economic Development</h3>
+
+        <p>
+        Education plays an important role in economic development because
+        it helps people acquire knowledge and practical skills. However,
+        education should not be understood only as the memorization of
+        information. A strong educational system also develops the ability
+        to analyse problems, communicate clearly and make responsible
+        decisions.
+        </p>
+
+        <p>
+        In a changing economy, workers may need to learn new skills several
+        times during their professional lives. Technology can create new
+        opportunities, but it can also change the nature of existing jobs.
+        For this reason, students who develop the habit of continuous
+        learning may be better prepared to adapt to new professional
+        environments.
+        </p>
+
+        <p>
+        Economic development also depends on institutions, infrastructure
+        and investment. Natural resources can generate considerable
+        economic activity, but resources alone do not automatically create
+        broad and sustainable development. Human capital, responsible
+        management and productive investment are also important.
+        </p>
+
+        <p>
+        The central challenge is therefore not simply to produce more
+        information, but to transform knowledge into useful skills and
+        responsible action.
+        </p>
+
+    </div>
+
+    <br>
+
+    <button id="startEnglishQuestions" class="primary" onclick="startEnglishQuestions()" disabled>
+        Start the questions
+    </button>
+
+</div>
+
+
+<!-- =========================
+     QUIZ
+========================= -->
+
+<div id="quiz" class="card hidden">
+
+    <div class="header">
+
+        <span id="subject" class="badge">
+            Matière
+        </span>
+
+        <span class="timer">
+            ⏱ <span id="time">60</span>s
+        </span>
+
+    </div>
+
+    <div class="progress">
+        <div id="progressBar" class="progress-bar"></div>
+    </div>
+
+    <div id="questionNumber" class="question-number"></div>
+
+    <div id="question" class="question"></div>
+
+    <div id="options" class="options"></div>
+
+    <button
+        id="nextButton"
+        class="next"
+        onclick="nextQuestion()"
+        disabled
+    >
+        Question suivante
+    </button>
+
+</div>
+
+
+<!-- =========================
+     RESULTATS
+========================= -->
+
+<div id="results" class="card hidden">
+
+    <h2 style="text-align:center">
+        Résultats du test
+    </h2>
+
+    <p style="text-align:center">
+        Participant :
+        <strong id="resultName"></strong>
+    </p>
+
+    <div class="score">
+        <span id="finalScore">0</span>/100
+    </div>
+
+    <div class="result-line">
+        Pourcentage :
+        <strong id="percentage"></strong>
+    </div>
+
+    <div class="result-line">
+        Bonnes réponses :
+        <strong id="correctCount"></strong>
+    </div>
+
+    <div class="result-line">
+        Mauvaises réponses :
+        <strong id="wrongCount"></strong>
+    </div>
+
+    <div class="result-line">
+        Questions sans réponse :
+        <strong id="blankCount"></strong>
+    </div>
+
+    <h3>Résultats par matière</h3>
+
+    <div id="subjectResults"></div>
+
+    <hr>
+
+    <h2>📕 Carnet d'erreurs</h2>
+
+    <div id="errors"></div>
+
+    <button class="primary" onclick="location.reload()">
+        Recommencer
+    </button>
+
+</div>
+
+</div>
+
+
 <script>
+
+/* ==========================================================
+   QUESTIONS
+========================================================== */
 
 const questions = [
 
-/* =========================
-   CULTURE GÉNÉRALE
-========================= */
-
-{
-subject:"Culture générale",
-question:"En quelle année le Congo belge a-t-il accédé à l'indépendance ?",
-options:["1958","1959","1960","1965"],
-answer:2
-},
-
-{
-subject:"Culture générale",
-question:"Quelle est la capitale de la République démocratique du Congo ?",
-options:["Lubumbashi","Kinshasa","Kisangani","Mbuji-Mayi"],
-answer:1
-},
-
-{
-subject:"Culture générale",
-question:"Quel fleuve traverse la ville de Kinshasa ?",
-options:["Le Congo","Le Nil","Le Niger","Le Zambèze"],
-answer:0
-},
-
-{
-subject:"Culture générale",
-question:"Quel est le plus grand océan du monde ?",
-options:["Atlantique","Indien","Arctique","Pacifique"],
-answer:3
-},
-
-{
-subject:"Culture générale",
-question:"Quel pays est appelé le pays du Soleil-Levant ?",
-options:["Chine","Japon","Corée du Sud","Thaïlande"],
-answer:1
-},
-
-{
-subject:"Culture générale",
-question:"Combien de provinces compte actuellement la RDC ?",
-options:["10","11","25","26"],
-answer:3
-},
-
-{
-subject:"Culture générale",
-question:"Quelle ville est le chef-lieu du Haut-Katanga ?",
-options:["Kolwezi","Likasi","Lubumbashi","Kipushi"],
-answer:2
-},
-
-{
-subject:"Culture générale",
-question:"Quel est le symbole chimique du cuivre ?",
-options:["Co","Cu","Cr","Ca"],
-answer:1
-},
-
-{
-subject:"Culture générale",
-question:"En quelle année la conférence de Berlin sur l'Afrique a-t-elle commencé ?",
-options:["1875","1884","1890","1908"],
-answer:1
-},
-
-{
-subject:"Culture générale",
-question:"Qui fut le premier Premier ministre de la République du Congo indépendant ?",
-options:["Joseph Kasa-Vubu","Patrice Lumumba","Mobutu Sese Seko","Moïse Tshombe"],
-answer:1
-},
-
-{
-subject:"Culture générale",
-question:"Quel est le siège principal de l'Union africaine ?",
-options:["Nairobi","Addis-Abeba","Kinshasa","Le Caire"],
-answer:1
-},
-
-{
-subject:"Culture générale",
-question:"Quelle est la monnaie officielle de la RDC ?",
-options:["Franc CFA","Dollar congolais","Franc congolais","Shilling"],
-answer:2
-},
-
-{
-subject:"Culture générale",
-question:"Quel continent possède le plus grand nombre de pays ?",
-options:["Europe","Afrique","Asie","Amérique"],
-answer:1
-},
-
-{
-subject:"Culture générale",
-question:"Quelle planète est surnommée la planète rouge ?",
-options:["Vénus","Mars","Jupiter","Mercure"],
-answer:1
-},
-
-{
-subject:"Culture générale",
-question:"Quel organe pompe le sang dans le corps humain ?",
-options:["Le foie","Le poumon","Le cœur","Le rein"],
-answer:2
-},
-
-{
-subject:"Culture générale",
-question:"Quel gaz est principalement nécessaire à la respiration humaine ?",
-options:["Azote","Oxygène","Hydrogène","Hélium"],
-answer:1
-},
-
-{
-subject:"Culture générale",
-question:"Quelle est la capitale de la Zambie ?",
-options:["Harare","Lusaka","Lilongwe","Gaborone"],
-answer:1
-},
-
-{
-subject:"Culture générale",
-question:"Quel est le plus grand désert chaud du monde ?",
-options:["Gobi","Kalahari","Sahara","Atacama"],
-answer:2
-},
-
-{
-subject:"Culture générale",
-question:"Quel instrument permet de mesurer la température ?",
-options:["Baromètre","Thermomètre","Hygromètre","Altimètre"],
-answer:1
-},
-
-{
-subject:"Culture générale",
-question:"Quel est le siège de l'ONU ?",
-options:["Paris","Genève","New York","Washington"],
-answer:2
-},
-
-{
-subject:"Culture générale",
-question:"Quel métal est principalement associé à la ceinture cuprifère du Katanga ?",
-options:["Cuivre","Argent","Aluminium","Étain"],
-answer:0
-},
-
-{
-subject:"Culture générale",
-question:"Quel est le plus grand continent par superficie ?",
-options:["Afrique","Europe","Asie","Amérique du Sud"],
-answer:2
-},
-
-{
-subject:"Culture générale",
-question:"Quelle est la langue officielle de la RDC ?",
-options:["Lingala","Swahili","Français","Kikongo"],
-answer:2
-},
-
-{
-subject:"Culture générale",
-question:"Quel est le nombre de membres permanents du Conseil de sécurité de l'ONU ?",
-options:["3","4","5","6"],
-answer:2
-},
-
-{
-subject:"Culture générale",
-question:"Quel est le principal organe judiciaire de l'ONU ?",
-options:["CPI","CIJ","UNESCO","OMS"],
-answer:1
-},
-
-/* =========================
-   FRANÇAIS
-========================= */
+/* ==========================================================
+   FRANÇAIS — 25
+========================================================== */
 
 {
 subject:"Français",
-question:"Quelle phrase est correctement écrite ?",
-options:[
-"Les élèves que j'ai rencontré sont sérieux.",
-"Les élèves que j'ai rencontrés sont sérieux.",
-"Les élèves que j'ai rencontrées sont sérieux.",
-"Les élèves que j'ai rencontrer sont sérieux."
+text:true,
+q:"Selon le texte, pourquoi la technologie ne garantit-elle pas à elle seule le développement ?",
+o:[
+"Parce qu'elle empêche les échanges internationaux.",
+"Parce que l'éducation, la formation et les institutions jouent également un rôle.",
+"Parce que les entreprises refusent toujours la technologie.",
+"Parce que les étudiants ne peuvent pas accéder à l'information."
 ],
-answer:1
+a:1
 },
 
 {
 subject:"Français",
-question:"Quel est le synonyme de « perspicace » ?",
-options:["Distrait","Lucide","Lent","Ignorant"],
-answer:1
-},
-
-{
-subject:"Français",
-question:"Dans « Il travaille rapidement », quelle est la fonction de « rapidement » ?",
-options:["Adjectif","Nom","Adverbe","Pronom"],
-answer:2
-},
-
-{
-subject:"Français",
-question:"Quel est le pluriel correct de « cheval » ?",
-options:["Chevals","Chevaux","Chevaus","Chevales"],
-answer:1
-},
-
-{
-subject:"Français",
-question:"Quel mot est correctement orthographié ?",
-options:["Acceuillir","Accueillir","Acueillir","Accueuillir"],
-answer:1
-},
-
-{
-subject:"Français",
-question:"Dans « La fille dont je parle est absente », « dont » est un :",
-options:["Pronom relatif","Déterminant","Adverbe","Adjectif"],
-answer:0
-},
-
-{
-subject:"Français",
-question:"Quel est le contraire de « éphémère » ?",
-options:["Passager","Durable","Fragile","Bref"],
-answer:1
-},
-
-{
-subject:"Français",
-question:"Quelle phrase contient un complément d'objet direct ?",
-options:[
-"Il parle à son frère.",
-"Elle pense à son avenir.",
-"Paul mange une pomme.",
-"Nous allons au marché."
+text:true,
+q:"Dans le texte, que signifie l'expression « capital humain » ?",
+o:[
+"Les ressources minières d'un pays.",
+"Les infrastructures technologiques.",
+"Les connaissances, compétences et capacités des personnes.",
+"Les capitaux détenus uniquement par les entreprises."
 ],
-answer:2
+a:2
 },
 
 {
 subject:"Français",
-question:"Quel est le féminin de « acteur » ?",
-options:["Acteuse","Actrice","Acteure","Actriceuse"],
-answer:1
-},
-
-{
-subject:"Français",
-question:"Quel temps est utilisé dans « Il avait terminé son travail » ?",
-options:["Passé simple","Plus-que-parfait","Passé composé","Imparfait"],
-answer:1
-},
-
-{
-subject:"Français",
-question:"Quel est le participe passé du verbe « résoudre » ?",
-options:["Résolu","Résous","Résoudé","Résout"],
-answer:0
-},
-
-{
-subject:"Français",
-question:"Quel mot est un déterminant démonstratif ?",
-options:["Leur","Ce","Qui","Très"],
-answer:1
-},
-
-{
-subject:"Français",
-question:"Dans « Nous leur avons parlé », « leur » est :",
-options:["COD","COI","Sujet","Attribut"],
-answer:1
-},
-
-{
-subject:"Français",
-question:"Quel est le bon homophone dans « Il a ___ raison » ?",
-options:["À","A","Ah","As"],
-answer:1
-},
-
-{
-subject:"Français",
-question:"Quelle figure de style compare explicitement deux éléments avec « comme » ?",
-options:["Métaphore","Comparaison","Hyperbole","Personnification"],
-answer:1
-},
-
-{
-subject:"Français",
-question:"Quel est le contraire de « généreux » ?",
-options:["Altruiste","Prodigue","Avare","Patient"],
-answer:2
-},
-
-{
-subject:"Français",
-question:"Quelle proposition est subordonnée dans « Je partirai lorsque tu arriveras » ?",
-options:[
-"Je partirai",
-"lorsque tu arriveras",
-"tu",
-"partirai"
+text:true,
+q:"Quelle idée principale est défendue dans le dernier paragraphe ?",
+o:[
+"Tout progrès technique est inutile.",
+"La technologie doit contribuer à répondre à des besoins réels.",
+"Les sociétés doivent abandonner les innovations.",
+"Les entreprises doivent remplacer les travailleurs."
 ],
-answer:1
+a:1
 },
 
 {
 subject:"Français",
-question:"Quel mode verbal exprime notamment le doute, le souhait ou la nécessité ?",
-options:["Indicatif","Subjonctif","Infinitif","Participe"],
-answer:1
-},
-
-{
-subject:"Français",
-question:"Quelle forme est correcte ?",
-options:[
-"Bien qu'il est raison.",
-"Bien qu'il ait raison.",
-"Bien qu'il a raison.",
-"Bien qu'il aura raison."
+text:true,
+q:"Dans « une utilisation responsable des ressources », le mot « responsable » est :",
+o:[
+"Un nom.",
+"Un adjectif qualificatif.",
+"Un adverbe.",
+"Un pronom."
 ],
-answer:1
+a:1
 },
 
 {
 subject:"Français",
-question:"Dans « Cette décision est importante », « importante » est :",
-options:["COD","Attribut du sujet","COI","Adverbe"],
-answer:1
+text:true,
+q:"Le texte oppose principalement :",
+o:[
+"la technologie et la science.",
+"le progrès technique et le progrès social durable.",
+"l'école et l'entreprise.",
+"les ressources et les marchés."
+],
+a:1
 },
 
 {
 subject:"Français",
-question:"Quel est le féminin de « héros » ?",
-options:["Héroïne","Hérosse","Héroesse","Héroïse"],
-answer:0
-},
-
-{
-subject:"Français",
-question:"Quel mot signifie « ambigu » ?",
-options:["Clair","Évident","Susceptible de plusieurs interprétations","Faux"],
-answer:2
-},
-
-{
-subject:"Français",
-question:"Quelle phrase est correctement accordée ?",
-options:[
+q:"Quelle phrase respecte l'accord du participe passé ?",
+o:[
 "Les lettres que j'ai écrit.",
 "Les lettres que j'ai écrites.",
 "Les lettres que j'ai écrite.",
 "Les lettres que j'ai écrits."
 ],
-answer:1
+a:1
 },
 
 {
 subject:"Français",
-question:"Quel est le temps de « nous eûmes terminé » ?",
-options:["Passé antérieur","Plus-que-parfait","Futur antérieur","Passé composé"],
-answer:0
+q:"Dans « Les erreurs qu'elle a commises », pourquoi « commises » prend-il un -es ?",
+o:[
+"Parce que le sujet est féminin pluriel.",
+"Parce que le COD placé avant le verbe est féminin pluriel.",
+"Parce que le verbe est au présent.",
+"Parce que « erreurs » est un sujet."
+],
+a:1
 },
 
 {
 subject:"Français",
-question:"Quel mot est un pronom personnel ?",
-options:["Lequel","Rapidement","Maison","Grand"],
-answer:0
-},
-
-/* =========================
-   ANGLAIS
-========================= */
-
-{
-subject:"English",
-question:"Choose the correct answer: She ___ to school every day.",
-options:["go","goes","going","gone"],
-answer:1
+q:"Quelle phrase contient un COD ?",
+o:[
+"Il parle à son frère.",
+"Elle pense à son avenir.",
+"Paul lit un roman.",
+"Nous allons au marché."
+],
+a:2
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: They ___ football yesterday.",
-options:["play","played","have play","playing"],
-answer:1
+subject:"Français",
+q:"Dans « Je leur parle », quelle est la fonction de « leur » ?",
+o:[
+"COD",
+"COI",
+"Sujet",
+"Attribut"
+],
+a:1
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: I have lived here ___ 2020.",
-options:["for","since","during","by"],
-answer:1
+subject:"Français",
+q:"Quelle phrase contient un COS ?",
+o:[
+"Il mange une pomme.",
+"Elle donne un livre à son frère.",
+"Nous dormons.",
+"Paul arrive demain."
+],
+a:1
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: If I ___ enough money, I would travel.",
-options:["have","had","will have","would have"],
-answer:1
+subject:"Français",
+q:"Quel pronom relatif convient : « La personne ___ je parle arrive demain » ?",
+o:[
+"que",
+"dont",
+"où",
+"laquelle"
+],
+a:1
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: She doesn't ___ coffee.",
-options:["likes","like","liked","liking"],
-answer:1
+subject:"Français",
+q:"Quel est le mode dans « Il faut que tu travailles » ?",
+o:[
+"Indicatif",
+"Conditionnel",
+"Subjonctif",
+"Impératif"
+],
+a:2
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: This book is ___ than that one.",
-options:["interesting","more interesting","most interesting","interest"],
-answer:1
+subject:"Français",
+q:"Quelle phrase est correcte ?",
+o:[
+"Bien qu'il est intelligent, il échoue.",
+"Bien qu'il soit intelligent, il échoue.",
+"Bien qu'il sera intelligent, il échoue.",
+"Bien qu'il était intelligent, il échoue."
+],
+a:1
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: He is ___ honest man.",
-options:["a","an","the","no article"],
-answer:1
+subject:"Français",
+q:"« Si j'avais étudié, j'aurais réussi » exprime :",
+o:[
+"Une condition réelle.",
+"Une hypothèse irréelle dans le passé.",
+"Une vérité générale.",
+"Un ordre."
+],
+a:1
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: We ___ dinner when he arrived.",
-options:["eat","were eating","have eaten","eating"],
-answer:1
+subject:"Français",
+q:"Quel est le temps de « nous eûmes terminé » ?",
+o:[
+"Passé composé",
+"Plus-que-parfait",
+"Passé antérieur",
+"Futur antérieur"
+],
+a:2
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: The letter ___ yesterday.",
-options:["was sent","sent","is send","has send"],
-answer:0
+subject:"Français",
+q:"Quel est le temps de « il avait terminé » ?",
+o:[
+"Imparfait",
+"Plus-que-parfait",
+"Passé antérieur",
+"Passé simple"
+],
+a:1
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: You ___ study harder for the exam.",
-options:["should","would","might to","can to"],
-answer:0
+subject:"Français",
+q:"Dans « Il travaille rapidement », « rapidement » est :",
+o:[
+"Un adjectif",
+"Un adverbe",
+"Un déterminant",
+"Un pronom"
+],
+a:1
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: I am interested ___ accounting.",
-options:["on","at","in","for"],
-answer:2
+subject:"Français",
+q:"Quel est l'antonyme de « éphémère » ?",
+o:[
+"Passager",
+"Durable",
+"Fragile",
+"Momentané"
+],
+a:1
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: She has ___ finished her work.",
-options:["already","yet","still","ever"],
-answer:0
+subject:"Français",
+q:"Quelle figure de style rapproche deux éléments avec un outil comparatif comme « comme » ?",
+o:[
+"Métaphore",
+"Comparaison",
+"Personnification",
+"Hyperbole"
+],
+a:1
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: How long ___ you been studying English?",
-options:["has","have","are","did"],
-answer:1
+subject:"Français",
+q:"Dans « Cette décision est importante », « importante » est :",
+o:[
+"COD",
+"Attribut du sujet",
+"COI",
+"Complément circonstanciel"
+],
+a:1
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: He ___ his homework before going out.",
-options:["had finished","has finish","finish","finishing"],
-answer:0
+subject:"Français",
+q:"Quel mot est correctement orthographié ?",
+o:[
+"Acceuillir",
+"Accueillir",
+"Acueillir",
+"Accueuillir"
+],
+a:1
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: The opposite of 'weak' is:",
-options:["small","strong","slow","short"],
-answer:1
+subject:"Français",
+q:"Quelle forme est correcte ?",
+o:[
+"Tout les élèves",
+"Touts les élèves",
+"Tous les élèves",
+"Toutes les élèves"
+],
+a:2
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: 'Thankful' means:",
-options:["angry","grateful","weak","afraid"],
-answer:1
+subject:"Français",
+q:"Dans « Quelques élèves sont absents », « quelques » est :",
+o:[
+"Un adverbe",
+"Un déterminant indéfini",
+"Un pronom relatif",
+"Un verbe"
+],
+a:1
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: She ___ English for five years.",
-options:["studies","has studied","study","studied yesterday"],
-answer:1
+subject:"Français",
+q:"Quelle phrase est correctement écrite ?",
+o:[
+"Quoiqu'il soit tard, il continue.",
+"Quoi qu'il soit tard, il continue.",
+"Quoi qu'il est tard, il continue.",
+"Quoiqu'il sera tard, il continue."
+],
+a:0
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: By next year, I ___ my studies.",
-options:["finish","finished","will have finished","have finish"],
-answer:2
+subject:"Français",
+q:"Dans « Il est nécessaire que vous veniez », le verbe « veniez » est au :",
+o:[
+"Présent du subjonctif",
+"Imparfait de l'indicatif",
+"Présent de l'indicatif",
+"Conditionnel présent"
+],
+a:0
+},
+
+
+/* ==========================================================
+   ANGLAIS — 25
+========================================================== */
+
+{
+subject:"Anglais",
+text:true,
+q:"According to the text, what is one purpose of education?",
+o:[
+"Only memorizing information.",
+"Developing knowledge and practical skills.",
+"Replacing all workers with technology.",
+"Preventing economic change."
+],
+a:1
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: If it rains, we ___ at home.",
-options:["stay","will stay","would stayed","stayed"],
-answer:1
+subject:"Anglais",
+text:true,
+q:"According to the text, why may workers need to learn new skills?",
+o:[
+"Because technology can change existing jobs.",
+"Because schools no longer exist.",
+"Because information is disappearing.",
+"Because companies cannot use technology."
+],
+a:0
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: He is good ___ mathematics.",
-options:["in","at","on","for"],
-answer:1
+subject:"Anglais",
+text:true,
+q:"What does the text say about natural resources?",
+o:[
+"They automatically create sustainable development.",
+"They have no economic value.",
+"They can generate economic activity but are not sufficient alone.",
+"They must never be used."
+],
+a:2
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: The students ___ by the teacher.",
-options:["were encouraged","encouraged","was encourage","have encourage"],
-answer:0
+subject:"Anglais",
+text:true,
+q:"In the text, what does « continuous learning » mean?",
+o:[
+"Never studying again.",
+"Learning only at school.",
+"Continuing to acquire knowledge and skills.",
+"Learning only through technology."
+],
+a:2
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: I haven't seen him ___ Monday.",
-options:["for","since","during","until"],
-answer:1
+subject:"Anglais",
+text:true,
+q:"What is the main idea of the text?",
+o:[
+"Technology is always harmful.",
+"Education should transform knowledge into useful skills.",
+"Natural resources are unnecessary.",
+"Workers should avoid learning new skills."
+],
+a:1
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: 'Give up' means:",
-options:["continue","abandon","start","increase"],
-answer:1
+subject:"Anglais",
+q:"Choose the correct answer: She ___ to school every day.",
+o:[
+"go",
+"goes",
+"going",
+"gone"
+],
+a:1
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: Neither John nor Peter ___ ready.",
-options:["are","were","is","be"],
-answer:2
+subject:"Anglais",
+q:"Choose the correct answer: They ___ football yesterday.",
+o:[
+"play",
+"played",
+"have play",
+"playing"
+],
+a:1
 },
 
 {
-subject:"English",
-question:"Choose the correct answer: She speaks English ___ than I do.",
-options:["better","good","best","well"],
-answer:0
+subject:"Anglais",
+q:"Choose the correct answer: I have lived here ___ 2020.",
+o:[
+"for",
+"since",
+"during",
+"until"
+],
+a:1
 },
 
-/* =========================
-   MATHS / LOGIQUE
-========================= */
+{
+subject:"Anglais",
+q:"Choose the correct answer: I have studied English ___ five years.",
+o:[
+"since",
+"for",
+"by",
+"until"
+],
+a:1
+},
+
+{
+subject:"Anglais",
+q:"Choose the correct answer: If I ___ enough time, I would participate.",
+o:[
+"have",
+"had",
+"will have",
+"would have"
+],
+a:1
+},
+
+{
+subject:"Anglais",
+q:"Choose the correct answer: She doesn't ___ coffee.",
+o:[
+"likes",
+"like",
+"liked",
+"liking"
+],
+a:1
+},
+
+{
+subject:"Anglais",
+q:"Choose the correct answer: We ___ dinner when he arrived.",
+o:[
+"eat",
+"were eating",
+"have eaten",
+"eating"
+],
+a:1
+},
+
+{
+subject:"Anglais",
+q:"Choose the correct passive form: « They built the bridge in 2020. »",
+o:[
+"The bridge built in 2020.",
+"The bridge was built in 2020.",
+"The bridge is built in 2020.",
+"The bridge has build in 2020."
+],
+a:1
+},
+
+{
+subject:"Anglais",
+q:"Choose the correct answer: The students ___ by the teacher.",
+o:[
+"were encouraged",
+"encouraged",
+"was encourage",
+"have encourage"
+],
+a:0
+},
+
+{
+subject:"Anglais",
+q:"Choose the correct answer: He said that he ___ tired.",
+o:[
+"is",
+"was",
+"will",
+"has"
+],
+a:1
+},
+
+{
+subject:"Anglais",
+q:"Choose the correct answer: She suggested ___ earlier.",
+o:[
+"to leave",
+"leaving",
+"leave",
+"left"
+],
+a:1
+},
+
+{
+subject:"Anglais",
+q:"Choose the correct answer: He denied ___ the money.",
+o:[
+"steal",
+"to steal",
+"stealing",
+"stole"
+],
+a:2
+},
+
+{
+subject:"Anglais",
+q:"Choose the correct answer: You ___ study harder.",
+o:[
+"should",
+"should to",
+"would to",
+"must to"
+],
+a:0
+},
+
+{
+subject:"Anglais",
+q:"Choose the correct answer: By next year, I ___ my studies.",
+o:[
+"finish",
+"finished",
+"will have finished",
+"have finish"
+],
+a:2
+},
+
+{
+subject:"Anglais",
+q:"Choose the correct answer: I haven't seen him ___ Monday.",
+o:[
+"for",
+"since",
+"during",
+"by"
+],
+a:1
+},
+
+{
+subject:"Anglais",
+q:"Choose the correct answer: Wait here ___ I come back.",
+o:[
+"since",
+"until",
+"for",
+"by"
+],
+a:1
+},
+
+{
+subject:"Anglais",
+q:"Choose the correct answer: « Give up » means:",
+o:[
+"continue",
+"abandon",
+"increase",
+"discover"
+],
+a:1
+},
+
+{
+subject:"Anglais",
+q:"Choose the correct answer: Neither John nor Peter ___ ready.",
+o:[
+"are",
+"were",
+"is",
+"be"
+],
+a:2
+},
+
+{
+subject:"Anglais",
+q:"Choose the correct answer: She speaks English ___ than I do.",
+o:[
+"better",
+"good",
+"best",
+"well"
+],
+a:0
+},
+
+{
+subject:"Anglais",
+q:"Choose the correct answer: I wish I ___ more time.",
+o:[
+"have",
+"had",
+"will have",
+"am having"
+],
+a:1
+},
+
+
+/* ==========================================================
+   MATHS / LOGIQUE — 25
+========================================================== */
 
 {
 subject:"Maths / Logique",
-question:"Quelle est la somme des racines de 2x² - 8x + 6 = 0 ?",
-options:["2","4","-4","3"],
-answer:1
+q:"Pour f(x)=√(x−3), quel est son domaine de définition ?",
+o:[
+"]−∞ ; 3]",
+"[3 ; +∞[",
+"]3 ; +∞[",
+"R"
+],
+a:1
 },
 
 {
 subject:"Maths / Logique",
-question:"Si 3x + 5 = 20, quelle est la valeur de x ?",
-options:["3","5","7","8"],
-answer:1
+q:"Quelle est la somme des racines de 2x²−8x+6=0 ?",
+o:[
+"−4",
+"2",
+"4",
+"6"
+],
+a:2
 },
 
 {
 subject:"Maths / Logique",
-question:"Combien vaut √81 ?",
-options:["7","8","9","10"],
-answer:2
+q:"Quel est le discriminant de x²−5x+6=0 ?",
+o:[
+"1",
+"5",
+"11",
+"25"
+],
+a:0
 },
 
 {
 subject:"Maths / Logique",
-question:"Quel est le résultat de 3/4 + 1/4 ?",
-options:["1/2","1","3/8","4/8"],
-answer:1
+q:"Les racines de x²−5x+6=0 sont :",
+o:[
+"1 et 6",
+"2 et 3",
+"−2 et −3",
+"3 et 4"
+],
+a:1
 },
 
 {
 subject:"Maths / Logique",
-question:"Quel est le carré de 12 ?",
-options:["124","144","132","154"],
-answer:1
+q:"Quelle est la dérivée de f(x)=x²−3x+1 ?",
+o:[
+"2x−3",
+"x−3",
+"2x+3",
+"x²−3"
+],
+a:0
 },
 
 {
 subject:"Maths / Logique",
-question:"Si f(x)=2x+3, combien vaut f(4) ?",
-options:["8","10","11","12"],
-answer:2
+q:"Une fonction paire vérifie :",
+o:[
+"f(−x)=−f(x)",
+"f(−x)=f(x)",
+"f(x+1)=f(x)",
+"f(x)=0"
+],
+a:1
 },
 
 {
 subject:"Maths / Logique",
-question:"Quelle est la valeur de 2³ × 2² ?",
-options:["16","32","64","128"],
-answer:1
+q:"Une fonction impaire vérifie :",
+o:[
+"f(−x)=f(x)",
+"f(−x)=−f(x)",
+"f(x)=1",
+"f(x+1)=f(x)"
+],
+a:1
 },
 
 {
 subject:"Maths / Logique",
-question:"Un article coûte 20 000 FC et augmente de 10 %. Quel est son nouveau prix ?",
-options:["20 100 FC","21 000 FC","22 000 FC","30 000 FC"],
-answer:2
+q:"Quelle est la limite de 1/x lorsque x tend vers +∞ ?",
+o:[
+"1",
+"−1",
+"0",
+"+∞"
+],
+a:2
 },
 
 {
 subject:"Maths / Logique",
-question:"Quelle est la moyenne de 10, 15 et 20 ?",
-options:["12","15","18","20"],
-answer:1
+q:"La droite x=2 est une asymptote verticale si :",
+o:[
+"f(x) tend vers 0 quand x tend vers 2.",
+"f(x) tend vers l'infini quand x tend vers 2.",
+"f(2)=0.",
+"f(2)=2."
+],
+a:1
 },
 
 {
 subject:"Maths / Logique",
-question:"Quel nombre complète la suite : 2, 4, 8, 16, ... ?",
-options:["20","24","30","32"],
-answer:3
+q:"Quelle est la période de sin(x) ?",
+o:[
+"π/2",
+"π",
+"2π",
+"4π"
+],
+a:2
 },
 
 {
 subject:"Maths / Logique",
-question:"Si x² = 49 et x > 0, alors x =",
-options:["-7","0","7","14"],
-answer:2
+q:"Quelle est la valeur de sin(π/2) ?",
+o:[
+"0",
+"1/2",
+"1",
+"−1"
+],
+a:2
 },
 
 {
 subject:"Maths / Logique",
-question:"Quel est le PGCD de 18 et 24 ?",
-options:["3","6","9","12"],
-answer:1
+q:"Quelle est la valeur de cos(0) ?",
+o:[
+"0",
+"1",
+"−1",
+"2"
+],
+a:1
 },
 
 {
 subject:"Maths / Logique",
-question:"Quel est le PPCM de 4 et 6 ?",
-options:["8","10","12","24"],
-answer:2
+q:"Une suite arithmétique de premier terme 3 et de raison 4 a pour quatrième terme :",
+o:[
+"11",
+"12",
+"15",
+"19"
+],
+a:2
 },
 
 {
 subject:"Maths / Logique",
-question:"Un triangle a des angles de 50° et 60°. Le troisième angle vaut :",
-options:["60°","70°","80°","90°"],
-answer:1
+q:"Une suite géométrique de premier terme 2 et de raison 3 a pour troisième terme :",
+o:[
+"6",
+"9",
+"18",
+"27"
+],
+a:2
 },
 
 {
 subject:"Maths / Logique",
-question:"Si 5 personnes réalisent un travail en 10 jours, combien de jours faudra-t-il à 10 personnes au même rythme ?",
-options:["2","5","10","20"],
-answer:1
+q:"Quelle est la probabilité d'obtenir un nombre pair avec un dé équilibré à six faces ?",
+o:[
+"1/6",
+"1/3",
+"1/2",
+"2/3"
+],
+a:2
 },
 
 {
 subject:"Maths / Logique",
-question:"Quel nombre manque : 3, 6, 12, 24, ... ?",
-options:["30","36","48","60"],
-answer:2
+q:"Une urne contient 3 boules rouges et 2 boules bleues. La probabilité de tirer une boule rouge est :",
+o:[
+"2/5",
+"3/5",
+"1/2",
+"3/2"
+],
+a:1
 },
 
 {
 subject:"Maths / Logique",
-question:"Un père a 40 ans et son fils 10 ans. Dans combien d'années le père aura-t-il deux fois l'âge du fils ?",
-options:["10","15","20","25"],
-answer:2
+q:"La moyenne de 8, 10 et 12 est :",
+o:[
+"9",
+"10",
+"11",
+"12"
+],
+a:1
 },
 
 {
 subject:"Maths / Logique",
-question:"Si 20 % d'un nombre vaut 30, ce nombre vaut :",
-options:["100","120","150","180"],
-answer:2
+q:"Si 20 % d'un nombre vaut 30, ce nombre vaut :",
+o:[
+"100",
+"120",
+"150",
+"180"
+],
+a:2
 },
 
 {
 subject:"Maths / Logique",
-question:"Quelle est la valeur de |−7| ?",
-options:["−7","0","7","14"],
-answer:2
+q:"Si 3x+5=20, alors x vaut :",
+o:[
+"3",
+"5",
+"7",
+"10"
+],
+a:1
 },
 
 {
 subject:"Maths / Logique",
-question:"Si A > B et B > C, alors :",
-options:["A < C","A = C","A > C","B > A"],
-answer:2
+q:"Quel est le résultat de 2³×2² ?",
+o:[
+"16",
+"32",
+"64",
+"128"
+],
+a:1
 },
 
 {
 subject:"Maths / Logique",
-question:"Un train parcourt 120 km en 2 heures. Sa vitesse moyenne est :",
-options:["40 km/h","50 km/h","60 km/h","80 km/h"],
-answer:2
+q:"Quel est le résultat de √144 ?",
+o:[
+"10",
+"11",
+"12",
+"14"
+],
+a:2
 },
 
 {
 subject:"Maths / Logique",
-question:"Quelle est l'aire d'un rectangle de longueur 8 cm et largeur 5 cm ?",
-options:["13 cm²","26 cm²","40 cm²","80 cm²"],
-answer:2
+q:"Si A>B et B>C, alors :",
+o:[
+"A<C",
+"A=C",
+"A>C",
+"B>A"
+],
+a:2
 },
 
 {
 subject:"Maths / Logique",
-question:"Un père regarde le portrait d'un homme. Il dit : « Je n'ai ni frère ni sœur, mais le père de cet homme est le fils de mon père. » Qui est l'homme du portrait ?",
-options:["Son frère","Son fils","Son père","Son cousin"],
-answer:1
+q:"Complète la suite : 2, 4, 8, 16, ...",
+o:[
+"20",
+"24",
+"30",
+"32"
+],
+a:3
 },
 
 {
 subject:"Maths / Logique",
-question:"Quel nombre complète la suite : 1, 4, 9, 16, 25, ... ?",
-options:["30","32","36","49"],
-answer:2
+q:"Quelle est la valeur de |−7| ?",
+o:[
+"−7",
+"0",
+"7",
+"14"
+],
+a:2
 },
 
 {
 subject:"Maths / Logique",
-question:"Si aujourd'hui est lundi, quel jour sera-t-on dans 10 jours ?",
-options:["Mercredi","Jeudi","Vendredi","Samedi"],
-answer:1
+q:"Un père a 40 ans et son fils 10 ans. Dans combien d'années le père aura-t-il deux fois l'âge du fils ?",
+o:[
+"5",
+"10",
+"20",
+"30"
+],
+a:2
+},
+
+
+/* ==========================================================
+   CULTURE GÉNÉRALE — 25
+========================================================== */
+
+{
+subject:"Culture générale",
+q:"En quelle année la République démocratique du Congo a-t-elle accédé à l'indépendance ?",
+o:[
+"1958",
+"1959",
+"1960",
+"1965"
+],
+a:2
+},
+
+{
+subject:"Culture générale",
+q:"En quelle année l'État indépendant du Congo est-il devenu le Congo belge ?",
+o:[
+"1885",
+"1908",
+"1914",
+"1960"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"La conférence de Berlin sur l'Afrique a débuté en :",
+o:[
+"1878",
+"1884",
+"1895",
+"1908"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quelle est la capitale de la RDC ?",
+o:[
+"Lubumbashi",
+"Kinshasa",
+"Kisangani",
+"Mbuji-Mayi"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Selon la Constitution, quelle est la langue officielle de la RDC ?",
+o:[
+"Le lingala",
+"Le swahili",
+"Le français",
+"Le tshiluba"
+],
+a:2
+},
+
+{
+subject:"Culture générale",
+q:"La RDC compte combien de provinces dotées de la personnalité juridique, selon l'article 2 de la Constitution ?",
+o:[
+"10",
+"24",
+"25",
+"26"
+],
+a:2
+},
+
+{
+subject:"Culture générale",
+q:"Quelle ville a le statut de province et constitue la capitale de la RDC ?",
+o:[
+"Lubumbashi",
+"Kinshasa",
+"Kolwezi",
+"Matadi"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quel est le chef-lieu du Haut-Katanga ?",
+o:[
+"Likasi",
+"Kolwezi",
+"Lubumbashi",
+"Kipushi"
+],
+a:2
+},
+
+{
+subject:"Culture générale",
+q:"Quel est le symbole chimique du cuivre ?",
+o:[
+"Co",
+"Cu",
+"Cr",
+"Ca"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Le bassin du Congo est principalement associé à quel type de milieu naturel ?",
+o:[
+"Une grande forêt tropicale",
+"Un désert chaud",
+"Une toundra",
+"Une steppe polaire"
+],
+a:0
+},
+
+{
+subject:"Culture générale",
+q:"Quel est le plus grand océan du monde ?",
+o:[
+"Atlantique",
+"Indien",
+"Pacifique",
+"Arctique"
+],
+a:2
+},
+
+{
+subject:"Culture générale",
+q:"Quel est le plus grand continent par superficie ?",
+o:[
+"Afrique",
+"Asie",
+"Europe",
+"Océanie"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quel pays est appelé le « pays du Soleil-Levant » ?",
+o:[
+"Chine",
+"Japon",
+"Inde",
+"Corée du Sud"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quel est le plus grand désert chaud du monde ?",
+o:[
+"Gobi",
+"Kalahari",
+"Sahara",
+"Atacama"
+],
+a:2
+},
+
+{
+subject:"Culture générale",
+q:"Quelle planète est surnommée la planète rouge ?",
+o:[
+"Vénus",
+"Mars",
+"Jupiter",
+"Mercure"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quel organe pompe le sang dans le corps humain ?",
+o:[
+"Le foie",
+"Le rein",
+"Le cœur",
+"Le poumon"
+],
+a:2
+},
+
+{
+subject:"Culture générale",
+q:"Quel gaz est indispensable à la respiration humaine ?",
+o:[
+"Azote",
+"Oxygène",
+"Hydrogène",
+"Hélium"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quel instrument mesure la température ?",
+o:[
+"Baromètre",
+"Thermomètre",
+"Hygromètre",
+"Altimètre"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quel est le siège principal de l'Organisation des Nations unies ?",
+o:[
+"Paris",
+"Genève",
+"New York",
+"Washington"
+],
+a:2
+},
+
+{
+subject:"Culture générale",
+q:"Combien de membres permanents possède le Conseil de sécurité de l'ONU ?",
+o:[
+"3",
+"4",
+"5",
+"10"
+],
+a:2
+},
+
+{
+subject:"Culture générale",
+q:"Quelle organisation continentale a succédé à l'Organisation de l'unité africaine ?",
+o:[
+"CEDEAO",
+"Union africaine",
+"SADC",
+"CEMAC"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quelle est la monnaie officielle de la RDC ?",
+o:[
+"Franc CFA",
+"Franc congolais",
+"Shilling",
+"Kwacha"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quel fleuve porte le même nom que la République démocratique du Congo ?",
+o:[
+"Le Congo",
+"Le Niger",
+"Le Nil",
+"Le Zambèze"
+],
+a:0
+},
+
+{
+subject:"Culture générale",
+q:"La RDC appartient principalement à quel continent ?",
+o:[
+"Asie",
+"Afrique",
+"Europe",
+"Amérique"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quelle est la devise inscrite dans la Constitution de la RDC ?",
+o:[
+"Unité, Travail, Progrès",
+"Justice, Paix, Travail",
+"Liberté, Égalité, Fraternité",
+"Paix, Travail, Solidarité"
+],
+a:1
 }
 
 ];
 
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+let participant = "";
+
 let current = 0;
+
 let score = 0;
+
 let selected = null;
-let time = 45;
-let timer = null;
+
+let questionTimer = null;
+
+let readingTimer = null;
+
 let answers = [];
 
-const questionElement = document.getElementById("question");
-const optionsElement = document.getElementById("options");
-const subjectElement = document.getElementById("subject");
-const numberElement = document.getElementById("number");
-const timeElement = document.getElementById("time");
-const nextButton = document.getElementById("nextButton");
-const progressBar = document.getElementById("progressBar");
+let frenchReadingFinished = false;
 
-function startTimer() {
+let englishReadingFinished = false;
 
-    clearInterval(timer);
 
-    time = 45;
-    timeElement.textContent = time;
+/* ==========================================================
+   ELEMENTS
+========================================================== */
 
-    timer = setInterval(() => {
+const home = document.getElementById("home");
 
-        time--;
+const frenchReading =
+document.getElementById("frenchReading");
 
-        timeElement.textContent = time;
+const englishReading =
+document.getElementById("englishReading");
 
-        if (time <= 0) {
+const quiz =
+document.getElementById("quiz");
 
-            clearInterval(timer);
+const results =
+document.getElementById("results");
 
-            answers.push({
-                question: questions[current].question,
-                selected: null,
-                correct: questions[current].options[questions[current].answer],
-                isCorrect: false
-            });
+const subject =
+document.getElementById("subject");
 
-            current++;
+const questionNumber =
+document.getElementById("questionNumber");
 
-            loadQuestion();
-        }
+const question =
+document.getElementById("question");
 
-    }, 1000);
-}
+const options =
+document.getElementById("options");
 
-function loadQuestion() {
+const time =
+document.getElementById("time");
 
-    if (current >= questions.length) {
-        finishQuiz();
+const nextButton =
+document.getElementById("nextButton");
+
+const progressBar =
+document.getElementById("progressBar");
+
+
+/* ==========================================================
+   DEMARRAGE
+========================================================== */
+
+function startTest(){
+
+    participant =
+    document.getElementById("participantName")
+    .value.trim();
+
+    if(!participant){
+
+        alert("Veuillez entrer votre nom.");
+
         return;
     }
 
+    home.classList.add("hidden");
+
+    frenchReading.classList.remove("hidden");
+
+    startFrenchReading();
+
+}
+
+
+/* ==========================================================
+   LECTURE FRANÇAIS — 15 MIN
+========================================================== */
+
+function startFrenchReading(){
+
+    let seconds = 15 * 60;
+
+    const timerDisplay =
+    document.getElementById("frenchReadingTimer");
+
+    readingTimer =
+    setInterval(function(){
+
+        seconds--;
+
+        let min =
+        Math.floor(seconds / 60);
+
+        let sec =
+        seconds % 60;
+
+        timerDisplay.textContent =
+        String(min).padStart(2,"0")
+        + ":"
+        + String(sec).padStart(2,"0");
+
+        if(seconds <= 0){
+
+            clearInterval(readingTimer);
+
+            frenchReadingFinished = true;
+
+            document.getElementById(
+                "startFrenchQuestions"
+            ).disabled = false;
+
+            document.getElementById(
+                "startFrenchQuestions"
+            ).textContent =
+            "Commencer les questions";
+
+            alert(
+                "Les 15 minutes de lecture sont terminées."
+            );
+        }
+
+    },1000);
+
+}
+
+
+/* ==========================================================
+   QUESTIONS FRANÇAIS
+========================================================== */
+
+function startFrenchQuestions(){
+
+    clearInterval(readingTimer);
+
+    frenchReading.classList.add("hidden");
+
+    quiz.classList.remove("hidden");
+
+    current = 0;
+
+    loadQuestion();
+
+}
+
+
+/* ==========================================================
+   CHARGEMENT QUESTION
+========================================================== */
+
+function loadQuestion(){
+
+    clearInterval(questionTimer);
+
+    if(current >= questions.length){
+
+        finishTest();
+
+        return;
+    }
+
+    const q =
+    questions[current];
+
     selected = null;
+
     nextButton.disabled = true;
 
-    const q = questions[current];
+    subject.textContent =
+    q.subject;
 
-    subjectElement.textContent = q.subject;
+    questionNumber.textContent =
+    "Question "
+    + (current + 1)
+    + " / "
+    + questions.length;
 
-    numberElement.textContent =
-        `Question ${current + 1} sur ${questions.length}`;
-
-    questionElement.textContent = q.question;
+    question.textContent =
+    q.q;
 
     progressBar.style.width =
-        `${(current / questions.length) * 100}%`;
+    ((current + 1) / questions.length * 100)
+    + "%";
 
-    optionsElement.innerHTML = "";
+    options.innerHTML = "";
 
-    q.options.forEach((option, index) => {
+    q.o.forEach(function(option,index){
 
-        const button = document.createElement("button");
+        const button =
+        document.createElement("button");
 
         button.className = "option";
 
         button.textContent =
-            String.fromCharCode(65 + index) + ". " + option;
+        String.fromCharCode(65 + index)
+        + ". "
+        + option;
 
-        button.onclick = () => selectAnswer(index, button);
+        button.onclick =
+        function(){
 
-        optionsElement.appendChild(button);
+            selectAnswer(index,button);
+
+        };
+
+        options.appendChild(button);
+
     });
 
-    startTimer();
+    startQuestionTimer();
+
 }
 
-function selectAnswer(index, button) {
+
+/* ==========================================================
+   TIMER QUESTION — 60 SECONDES
+========================================================== */
+
+function startQuestionTimer(){
+
+    let seconds = 60;
+
+    time.textContent = seconds;
+
+    questionTimer =
+    setInterval(function(){
+
+        seconds--;
+
+        time.textContent = seconds;
+
+        if(seconds <= 0){
+
+            clearInterval(questionTimer);
+
+            saveAnswer(null);
+
+        }
+
+    },1000);
+
+}
+
+
+/* ==========================================================
+   SELECTION
+========================================================== */
+
+function selectAnswer(index,button){
 
     selected = index;
 
-    document.querySelectorAll(".option")
-        .forEach(btn => btn.classList.remove("selected"));
+    document
+    .querySelectorAll(".option")
+    .forEach(function(btn){
+
+        btn.classList.remove("selected");
+
+    });
 
     button.classList.add("selected");
 
     nextButton.disabled = false;
+
 }
 
-nextButton.onclick = () => {
 
-    if (selected === null) return;
+/* ==========================================================
+   QUESTION SUIVANTE
+========================================================== */
 
-    clearInterval(timer);
+function nextQuestion(){
 
-    const q = questions[current];
+    if(selected === null){
 
-    const correct = selected === q.answer;
+        return;
+    }
 
-    if (correct) score++;
+    clearInterval(questionTimer);
+
+    saveAnswer(selected);
+
+}
+
+
+/* ==========================================================
+   ENREGISTREMENT
+========================================================== */
+
+function saveAnswer(choice){
+
+    const q =
+    questions[current];
+
+    const isCorrect =
+    choice === q.a;
+
+    if(isCorrect){
+
+        score++;
+
+    }
 
     answers.push({
-        question: q.question,
-        selected: q.options[selected],
-        correct: q.options[q.answer],
-        isCorrect: correct
+
+        number:current + 1,
+
+        subject:q.subject,
+
+        question:q.q,
+
+        selected:
+        choice === null
+        ? "Aucune réponse"
+        : q.o[choice],
+
+        correct:q.o[q.a],
+
+        isCorrect:isCorrect
+
     });
 
     current++;
 
-    loadQuestion();
-};
+    /*
+       Après les 25 questions françaises,
+       on lance la lecture anglaise.
+    */
 
-function finishQuiz() {
+    if(current === 25){
 
-    clearInterval(timer);
+        quiz.classList.add("hidden");
 
-    document.getElementById("quiz")
-        .classList.add("hidden");
+        englishReading.classList.remove("hidden");
 
-    document.getElementById("result")
-        .classList.remove("hidden");
+        startEnglishReading();
 
-    document.getElementById("finalScore")
-        .textContent = score;
-
-    const percentage =
-        Math.round((score / questions.length) * 100);
-
-    document.getElementById("percentage")
-        .textContent = percentage + "%";
-
-    let message = "";
-
-    if (percentage >= 90) {
-        message = "Excellent résultat.";
-    } else if (percentage >= 80) {
-        message = "Très bon résultat. Continuez la préparation.";
-    } else if (percentage >= 70) {
-        message = "Bon résultat. Il reste des points à renforcer.";
-    } else if (percentage >= 60) {
-        message = "Résultat moyen. Une révision supplémentaire est nécessaire.";
-    } else {
-        message = "Continuez à travailler et analysez vos erreurs.";
+        return;
     }
 
-    document.getElementById("message")
-        .textContent = message;
+    loadQuestion();
+
 }
 
-function showReview() {
 
-    const review = document.getElementById("review");
+/* ==========================================================
+   LECTURE ANGLAIS — 15 MIN
+========================================================== */
 
-    review.classList.remove("hidden");
+function startEnglishReading(){
 
-    review.innerHTML = "<h3>Correction</h3>";
+    let seconds = 15 * 60;
 
-    answers.forEach((answer, index) => {
+    const timerDisplay =
+    document.getElementById("englishReadingTimer");
 
-        const div = document.createElement("div");
+    readingTimer =
+    setInterval(function(){
+
+        seconds--;
+
+        let min =
+        Math.floor(seconds / 60);
+
+        let sec =
+        seconds % 60;
+
+        timerDisplay.textContent =
+        String(min).padStart(2,"0")
+        + ":"
+        + String(sec).padStart(2,"0");
+
+        if(seconds <= 0){
+
+            clearInterval(readingTimer);
+
+            englishReadingFinished = true;
+
+            document.getElementById(
+                "startEnglishQuestions"
+            ).disabled = false;
+
+            alert(
+                "The 15-minute reading period is over."
+            );
+
+        }
+
+    },1000);
+
+}
+
+
+/* ==========================================================
+   QUESTIONS ANGLAIS
+========================================================== */
+
+function startEnglishQuestions(){
+
+    clearInterval(readingTimer);
+
+    englishReading.classList.add("hidden");
+
+    quiz.classList.remove("hidden");
+
+    /*
+       Les questions 25 à 49
+       correspondent à l'anglais.
+    */
+
+    loadQuestion();
+
+}
+
+
+/* ==========================================================
+   FIN DU TEST
+========================================================== */
+
+function finishTest(){
+
+    clearInterval(questionTimer);
+
+    quiz.classList.add("hidden");
+
+    results.classList.remove("hidden");
+
+    document.getElementById("resultName")
+    .textContent = participant;
+
+    document.getElementById("finalScore")
+    .textContent = score;
+
+    const percentage =
+    score;
+
+    document.getElementById("percentage")
+    .textContent =
+    percentage + "%";
+
+    const correct =
+    answers.filter(
+        a => a.isCorrect
+    ).length;
+
+    const wrong =
+    answers.filter(
+        a => !a.isCorrect &&
+        a.selected !== "Aucune réponse"
+    ).length;
+
+    const blank =
+    answers.filter(
+        a => a.selected === "Aucune réponse"
+    ).length;
+
+    document.getElementById("correctCount")
+    .textContent = correct;
+
+    document.getElementById("wrongCount")
+    .textContent = wrong;
+
+    document.getElementById("blankCount")
+    .textContent = blank;
+
+    showSubjectResults();
+
+    showErrors();
+
+}
+
+
+/* ==========================================================
+   RESULTATS PAR MATIERE
+========================================================== */
+
+function showSubjectResults(){
+
+    const box =
+    document.getElementById("subjectResults");
+
+    box.innerHTML = "";
+
+    const subjects = [
+        "Français",
+        "Anglais",
+        "Maths / Logique",
+        "Culture générale"
+    ];
+
+    subjects.forEach(function(name){
+
+        const list =
+        answers.filter(
+            a => a.subject === name
+        );
+
+        const correct =
+        list.filter(
+            a => a.isCorrect
+        ).length;
+
+        const percentage =
+        list.length
+        ? Math.round(
+            correct / list.length * 100
+          )
+        : 0;
+
+        const div =
+        document.createElement("div");
 
         div.className =
-            "review-item " +
-            (answer.isCorrect ? "correct" : "incorrect");
+        "result-line";
 
-        div.innerHTML = `
-            <strong>Question ${index + 1}</strong><br><br>
-            ${answer.question}<br><br>
+        div.innerHTML =
+        "<strong>"
+        + name
+        + "</strong> : "
+        + correct
+        + "/"
+        + list.length
+        + " — "
+        + percentage
+        + "%";
 
-            <strong>Votre réponse :</strong>
-            ${answer.selected === null ? "Aucune réponse" : answer.selected}
-            <br>
+        box.appendChild(div);
 
-            <strong>Bonne réponse :</strong>
-            ${answer.correct}
-        `;
-
-        review.appendChild(div);
     });
+
 }
 
-function restartQuiz() {
-    location.reload();
-}
 
-loadQuestion();
+/* ==========================================================
+   CARNET D'ERREURS
+========================================================== */
+
+function showErrors(){
+
+    const box =
+    document.getElementById("errors");
+
+    box.innerHTML = "";
+
+    const errors =
+    answers.filter(
+        a => !a.isCorrect
+    );
+
+    if(errors.length === 0){
+
+        box.innerHTML =
+        "<div class='result-line correct'>" +
+        "Aucune erreur. Toutes les réponses sont correctes." +
+        "</div>";
+
+        return;
+    }
+
+    errors.forEach(function(error){
+
+        const div =
+        document.createElement("div");
+
+        div.className =
+        "error";
+
+        div.innerHTML =
+
+        "<strong>Question "
+        + error.number
+        + " — "
+        + error.subject
+        + "</strong>"
+
+        + "<p>"
+        + error.question
+        + "</p>"
+
+        + "<p>"
+        + "<strong>Votre réponse :</strong> "
+        + error.selected
+        + "</p>"
+
+        + "<p>"
+        + "<strong>Bonne réponse :</strong> "
+        + error.correct
+        + "</p>";
+
+        box.appendChild(div);
+
+    });
+
+}
 
 </script>
 
 </body>
-          </html>
+  </html>
