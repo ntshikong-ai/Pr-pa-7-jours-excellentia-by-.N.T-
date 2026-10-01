@@ -59,7 +59,6 @@
   .btn.warn{background:var(--warn);color:#111}
   .btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
 
-  /* TEXT SCREEN */
   .text-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:12px}
   .timer{
     font-family:'Courier New',monospace;font-weight:700;font-size:1.15rem;
@@ -76,7 +75,6 @@
   .text-content p{margin-bottom:16px;text-align:justify}
   .text-actions{margin-top:18px;text-align:right}
 
-  /* QUIZ */
   .quiz-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:12px;flex-wrap:wrap}
   .section-info{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
   .section-badge{
@@ -100,7 +98,6 @@
   .option.selected{background:linear-gradient(90deg,#1e3a8a,#1e40af);border-color:var(--accent);color:#fff}
   .quiz-actions{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
-  /* MODAL */
   .modal{
     display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);
     z-index:100;align-items:center;justify-content:center;padding:20px;
@@ -117,7 +114,6 @@
   .btn-close{background:transparent;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer;padding:4px 10px;border-radius:6px}
   .btn-close:hover{background:#1e2d4a;color:#fff}
 
-  /* RESULTS */
   .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:22px}
   .result-card{
     background:#0d1729;border:1px solid var(--border);border-radius:12px;
@@ -147,7 +143,6 @@
   .error-answer .correct{color:#86efac}
   .no-errors{text-align:center;padding:30px;color:var(--ok);font-size:1.15rem;font-weight:600}
 
-  /* CHEAT */
   .cheat-card{text-align:center;border-color:var(--bad)}
   .cheat-card h2{color:var(--bad);font-size:1.8rem;margin-bottom:18px}
   .cheat-card p{color:var(--muted);line-height:1.7;margin-bottom:12px;font-size:1.05rem}
@@ -437,6 +432,7 @@ const state = {
   questionTimeLeft:60,
   textTimer:null,
   textTimeLeft:900,
+  currentTextSection:0,
   currentPhase:'home'
 };
 
@@ -490,6 +486,7 @@ function startTest(){
 
 function showTextScreen(sectionIdx){
   state.currentPhase = 'text';
+  state.currentTextSection = sectionIdx;
   const section = SECTIONS[sectionIdx];
   document.getElementById('text-title').textContent = 'Lecture — ' + section.name;
   document.getElementById('text-content').innerHTML = section.text;
@@ -503,7 +500,8 @@ function showTextScreen(sectionIdx){
     updateTextTimer();
     if (state.textTimeLeft <= 0){
       clearInterval(state.textTimer);
-      startSectionQuestions(sectionIdx);
+      state.textTimer = null;
+      startSectionQuestions(state.currentTextSection);
     }
   }, 1000);
 }
@@ -532,7 +530,7 @@ function loadQuestion(){
     'Question ' + (q.questionInSection + 1) + ' / ' + q.totalInSection;
   document.getElementById('question-text').textContent = q.q;
 
-  const progress = (state.currentGlobalIdx / ALL_QUESTIONS.length) * 100;
+  const progress = ((state.currentGlobalIdx + 1) / ALL_QUESTIONS.length) * 100;
   document.getElementById('progress-fill').style.width = progress + '%';
 
   const container = document.getElementById('options-container');
@@ -563,6 +561,7 @@ function loadQuestion(){
     updateQuestionTimer();
     if (state.questionTimeLeft <= 0){
       clearInterval(state.questionTimer);
+      state.questionTimer = null;
       nextQuestion();
     }
   }, 1000);
@@ -588,6 +587,9 @@ function nextQuestion(){
 
   const nextQ = ALL_QUESTIONS[nextIdx];
 
+  /* ✅ Mise à jour AVANT affichage du texte de la nouvelle section */
+  state.currentGlobalIdx = nextIdx;
+
   if (nextQ.sectionIndex !== currentQ.sectionIndex){
     const nextSection = SECTIONS[nextQ.sectionIndex];
     if (nextSection.text){
@@ -596,7 +598,6 @@ function nextQuestion(){
     }
   }
 
-  state.currentGlobalIdx = nextIdx;
   loadQuestion();
 }
 
@@ -632,7 +633,7 @@ function activateAntiCheat(){
         if (state.testActive && !state.cheated && !document.hasFocus()){
           triggerCheat();
         }
-      }, 150);
+      }, 200);
     }
   });
 }
@@ -748,22 +749,23 @@ function resetToHome(){
    ÉVÉNEMENTS
    ========================================================= */
 document.getElementById('btn-start').addEventListener('click', startTest);
+
 document.getElementById('btn-start-questions').addEventListener('click', () => {
-  const q = ALL_QUESTIONS[state.currentGlobalIdx];
-  startSectionQuestions(q.sectionIndex);
+  startSectionQuestions(state.currentTextSection);
 });
+
 document.getElementById('btn-next').addEventListener('click', nextQuestion);
 document.getElementById('btn-close-modal').addEventListener('click', closeTextModal);
+
 document.getElementById('btn-restart').addEventListener('click', () => {
   if (confirm('Recommencer le test depuis le début ?')) resetToHome();
 });
+
 document.getElementById('btn-cheat-home').addEventListener('click', resetToHome);
 
-/* Fermer le modal en cliquant sur le fond */
 document.getElementById('text-modal').addEventListener('click', (e) => {
   if (e.target.id === 'text-modal') closeTextModal();
 });
-
 </script>
 </body>
-                                                      </html>
+          </html>
