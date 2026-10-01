@@ -15,80 +15,104 @@
 body{
     margin:0;
     font-family:Arial,Helvetica,sans-serif;
-    background:#eef2f7;
+    background:#eef2f5;
     color:#17202a;
 }
 
+button{
+    font-family:inherit;
+}
+
 .container{
-    max-width:800px;
-    margin:auto;
-    padding:15px;
+    width:94%;
+    max-width:760px;
+    margin:20px auto;
 }
 
 .card{
     background:white;
     border-radius:16px;
     padding:25px;
-    margin-top:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,.10);
+    box-shadow:0 5px 25px rgba(0,0,0,.10);
+}
+
+.center{
+    text-align:center;
 }
 
 .logo{
-    text-align:center;
     font-size:30px;
-    font-weight:bold;
-    color:#145da0;
-}
-
-.subtitle{
-    text-align:center;
-    color:#666;
-    margin-bottom:25px;
+    font-weight:800;
+    color:#1261a0;
 }
 
 .by{
-    text-align:center;
+    font-size:16px;
     font-weight:bold;
-    margin-top:10px;
+    color:#555;
+    margin-top:5px;
+}
+
+.title{
+    font-size:27px;
+    margin:15px 0;
+}
+
+.subtitle{
+    color:#555;
+    line-height:1.6;
+}
+
+.info{
+    background:#f1f7fc;
+    border-left:5px solid #1261a0;
+    padding:15px;
+    margin:20px 0;
+    border-radius:8px;
+    text-align:left;
 }
 
 input{
     width:100%;
     padding:14px;
     border:1px solid #bbb;
-    border-radius:8px;
+    border-radius:9px;
     font-size:16px;
-    margin:10px 0 15px;
+    margin:10px 0;
 }
 
-button{
-    border:none;
-    border-radius:9px;
-    padding:14px 18px;
+.main-btn{
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:10px;
+    background:#1261a0;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.secondary-btn{
+    width:100%;
+    padding:13px;
+    border:1px solid #1261a0;
+    border-radius:10px;
+    background:white;
+    color:#1261a0;
     font-size:16px;
     font-weight:bold;
     cursor:pointer;
+    margin-top:10px;
 }
 
-.primary{
-    width:100%;
-    background:#145da0;
-    color:white;
+.danger-btn{
+    background:#b71c1c;
 }
 
-.secondary{
-    background:#555;
-    color:white;
-}
-
-.green{
-    background:#16803c;
-    color:white;
-}
-
-.warning{
-    color:#b3261e;
-    font-weight:bold;
+.hidden{
+    display:none !important;
 }
 
 .header{
@@ -96,149 +120,194 @@ button{
     justify-content:space-between;
     align-items:center;
     gap:10px;
-    border-bottom:2px solid #145da0;
-    padding-bottom:15px;
-    margin-bottom:20px;
+    border-bottom:2px solid #1261a0;
+    padding-bottom:14px;
+    margin-bottom:15px;
 }
 
 .badge{
-    background:#145da0;
+    background:#1261a0;
     color:white;
-    padding:8px 12px;
+    padding:7px 10px;
     border-radius:7px;
+    font-size:13px;
     font-weight:bold;
 }
 
 .timer{
     background:#ffe5e5;
-    color:#c62828;
-    padding:9px 13px;
+    color:#b71c1c;
+    padding:9px 12px;
     border-radius:8px;
     font-weight:bold;
 }
 
 .progress{
-    height:9px;
+    height:8px;
     background:#ddd;
-    border-radius:10px;
+    border-radius:20px;
     overflow:hidden;
-    margin:15px 0;
+    margin-bottom:18px;
 }
 
 .progress-bar{
     height:100%;
-    background:#145da0;
     width:0%;
+    background:#1261a0;
     transition:.3s;
 }
 
 .question-number{
     color:#666;
     font-size:14px;
+    margin-bottom:10px;
 }
 
 .question{
-    font-size:20px;
+    font-size:19px;
     font-weight:bold;
     line-height:1.55;
-    margin:18px 0;
-}
-
-.options{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
+    margin-bottom:20px;
 }
 
 .option{
+    display:block;
     width:100%;
-    text-align:left;
+    padding:14px;
+    margin:9px 0;
     background:white;
     border:1px solid #bbb;
-    transition:.2s;
+    border-radius:9px;
+    text-align:left;
+    font-size:16px;
+    cursor:pointer;
 }
 
 .option:hover{
-    background:#edf6ff;
-    border-color:#145da0;
+    background:#eef7ff;
 }
 
 .option.selected{
-    background:#dceeff;
-    border:2px solid #145da0;
+    background:#dbeeff;
+    border:2px solid #1261a0;
 }
 
 .next{
     width:100%;
-    margin-top:20px;
-    background:#16803c;
+    padding:14px;
+    margin-top:12px;
+    border:0;
+    border-radius:9px;
+    background:#188544;
     color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 .next:disabled{
     background:#aaa;
-    cursor:not-allowed;
 }
 
-.hidden{
-    display:none;
-}
-
-.reading-title{
-    font-size:24px;
-    font-weight:bold;
-    color:#145da0;
-}
-
-.reading-text{
-    background:#f7f9fb;
-    padding:20px;
-    border-left:5px solid #145da0;
-    line-height:1.8;
-    font-size:17px;
+.text-button{
+    width:100%;
+    padding:11px;
+    margin-top:10px;
+    border:1px solid #555;
     border-radius:8px;
-    max-height:500px;
-    overflow:auto;
+    background:#fff;
+    cursor:pointer;
 }
 
-.reading-timer{
-    text-align:center;
-    font-size:30px;
+.result-score{
+    font-size:48px;
     font-weight:bold;
-    color:#c62828;
-    margin:20px;
+    color:#1261a0;
 }
 
-.score{
-    text-align:center;
-    font-size:50px;
+.percent{
+    font-size:25px;
     font-weight:bold;
-    color:#145da0;
 }
 
-.result-line{
-    padding:12px;
-    background:#f4f6f8;
-    margin:8px 0;
-    border-radius:8px;
+.result-box{
+    background:#f4f7f9;
+    padding:15px;
+    border-radius:10px;
+    margin:15px 0;
 }
 
 .error{
     border-left:5px solid #c62828;
-    background:#fff4f4;
+    background:#fff3f3;
     padding:15px;
-    margin:12px 0;
-    border-radius:8px;
+    margin:10px 0;
+    border-radius:7px;
+    line-height:1.5;
 }
 
 .correct{
-    border-left:5px solid #16803c;
-    background:#f1fff5;
+    color:#16803c;
+    font-weight:bold;
+}
+
+.incorrect{
+    color:#c62828;
+    font-weight:bold;
+}
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    z-index:1000;
+    overflow:auto;
+    padding:15px;
+}
+
+.modal-content{
+    max-width:800px;
+    margin:20px auto;
+    background:white;
+    border-radius:14px;
+    padding:22px;
+}
+
+.text-title{
+    font-size:23px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.reading-timer{
+    position:sticky;
+    top:0;
+    background:#1261a0;
+    color:white;
+    padding:12px;
+    border-radius:8px;
+    text-align:center;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.reading-text{
+    line-height:1.75;
+    font-size:17px;
+    text-align:justify;
+}
+
+.locked{
+    text-align:center;
+}
+
+.lock-icon{
+    font-size:55px;
 }
 
 .small{
-    font-size:14px;
     color:#666;
+    font-size:13px;
 }
 
 </style>
@@ -248,298 +317,234 @@ button{
 
 <div class="container">
 
-<!-- =========================
-     PAGE D'ACCUEIL
-========================= -->
+<!-- ================= ACCUEIL ================= -->
 
 <div id="home" class="card">
 
-    <div class="logo">
-        PRÉPARATION EXCELLENTIA RDC
-    </div>
+<div class="center">
 
-    <div class="subtitle">
-        Test intensif — 100 questions
-    </div>
+<div class="logo">EXCELLENTIA RDC</div>
 
-    <div class="by">
-        By N.T
-    </div>
+<div class="by">By N.T</div>
 
-    <hr>
+<h1 class="title">
+Test intensif de préparation
+</h1>
 
-    <h3>Présentation</h3>
+<p class="subtitle">
+Bienvenue dans cette simulation de préparation à l'Excellence.
+</p>
 
-    <p>
-        Cette plateforme est destinée à l'entraînement intensif
-        aux épreuves de sélection.
-    </p>
+<p class="subtitle">
+<strong>Bonne chance de la part de Nathan.</strong>
+Travaillez avec concentration, honnêteté et régularité.
+</p>
 
-    <p>
-        Le test comporte quatre matières :
-    </p>
+</div>
 
-    <ul>
-        <li>Français — 25 questions</li>
-        <li>Anglais — 25 questions</li>
-        <li>Mathématiques et logique — 25 questions</li>
-        <li>Culture générale — 25 questions</li>
-    </ul>
+<div class="info">
 
-    <p>
-        Chaque question dispose de <strong>60 secondes</strong>.
-    </p>
+<strong>Structure du test</strong>
 
-    <p>
-        Deux textes de compréhension sont proposés :
-        un texte français et un texte anglais.
-        Chaque lecture dispose de <strong>15 minutes</strong>.
-    </p>
+<ul>
+<li>25 questions — Culture générale</li>
+<li>25 questions — Français</li>
+<li>25 questions — Anglais</li>
+<li>25 questions — Mathématiques / Logique</li>
+<li>1 minute par question</li>
+<li>2 textes de compréhension</li>
+<li>15 minutes de lecture prévues par texte</li>
+</ul>
 
-    <p>
-        À la fin, le participant reçoit son score,
-        son pourcentage et le détail de ses erreurs.
-    </p>
+</div>
 
-    <label><strong>Nom du participant</strong></label>
+<div class="info">
 
-    <input
-        id="participantName"
-        type="text"
-        placeholder="Exemple : Nathan"
-    >
+<strong>Règles anti-triche</strong>
 
-    <button class="primary" onclick="startTest()">
-        COMMENCER LE TEST
-    </button>
+<p>
+Une fois le test commencé, le candidat doit rester sur cette page.
+Si la page devient inactive parce que le candidat change d'onglet,
+quitte la page ou minimise la fenêtre, la tentative est automatiquement
+considérée comme interrompue pour tricherie et le test est verrouillé.
+</p>
+
+</div>
+
+<label>
+<strong>Nom du candidat</strong>
+</label>
+
+<input
+id="candidateName"
+type="text"
+placeholder="Entrez votre nom complet"
+autocomplete="off"
+>
+
+<button class="main-btn" onclick="startTest()">
+COMMENCER LE TEST
+</button>
+
+<button class="secondary-btn" onclick="openReading('fr')">
+Lire le texte français
+</button>
+
+<button class="secondary-btn" onclick="openReading('en')">
+Read the English text
+</button>
+
+<p class="small center">
+Préparation personnelle — By N.T
+</p>
 
 </div>
 
 
-<!-- =========================
-     LECTURE FRANÇAISE
-========================= -->
+<!-- ================= TEST ================= -->
 
-<div id="frenchReading" class="card hidden">
+<div id="test" class="card hidden">
 
-    <div class="reading-title">
-        📖 Lecture — Français
-    </div>
+<div class="header">
 
-    <p>
-        Vous disposez de <strong>15 minutes</strong>
-        pour lire attentivement le texte.
-    </p>
+<span id="subject" class="badge">
+Culture générale
+</span>
 
-    <div id="frenchReadingTimer" class="reading-timer">
-        15:00
-    </div>
+<span class="timer">
+Temps : <span id="questionTimer">60</span>s
+</span>
 
-    <div class="reading-text">
+</div>
 
-        <h3>Le progrès et la responsabilité</h3>
+<div class="progress">
+<div id="progressBar" class="progress-bar"></div>
+</div>
 
-        <p>
-        Le progrès économique et technologique transforme profondément
-        les sociétés contemporaines. Les moyens de communication permettent
-        aujourd'hui à des personnes séparées par des milliers de kilomètres
-        d'échanger presque instantanément. Les entreprises peuvent accéder
-        à de nouveaux marchés et les étudiants disposent d'un volume
-        considérable d'informations.
-        </p>
+<div id="questionNumber" class="question-number"></div>
 
-        <p>
-        Cependant, l'accès à la technologie ne garantit pas à lui seul
-        le développement. Une société peut disposer d'infrastructures
-        modernes tout en conservant des inégalités importantes si
-        l'éducation, la formation professionnelle et la qualité des
-        institutions ne progressent pas parallèlement.
-        </p>
+<div id="questionText" class="question"></div>
 
-        <p>
-        Le véritable enjeu consiste donc à transformer les possibilités
-        offertes par le progrès en avantages durables pour la population.
-        Cela suppose une utilisation responsable des ressources,
-        un investissement dans le capital humain et une capacité à
-        distinguer l'innovation utile de la simple nouveauté.
-        </p>
+<div id="options"></div>
 
-        <p>
-        Le progrès doit ainsi être considéré non seulement comme une
-        augmentation des capacités techniques, mais aussi comme une
-        amélioration de la capacité collective à résoudre des problèmes.
-        Une technologie n'a de valeur sociale durable que lorsqu'elle
-        contribue à répondre efficacement à des besoins réels.
-        </p>
+<button
+id="nextButton"
+class="next"
+disabled
+onclick="nextQuestion()"
+>
+Question suivante
+</button>
 
-    </div>
-
-    <br>
-
-    <button id="startFrenchQuestions" class="primary" onclick="startFrenchQuestions()" disabled>
-        Commencer les questions
-    </button>
+<button
+id="textButton"
+class="text-button hidden"
+onclick="openReading(currentText)"
+>
+📖 Revoir le texte
+</button>
 
 </div>
 
 
-<!-- =========================
-     LECTURE ANGLAISE
-========================= -->
-
-<div id="englishReading" class="card hidden">
-
-    <div class="reading-title">
-        📖 Reading — English
-    </div>
-
-    <p>
-        You have <strong>15 minutes</strong> to read the text carefully.
-    </p>
-
-    <div id="englishReadingTimer" class="reading-timer">
-        15:00
-    </div>
-
-    <div class="reading-text">
-
-        <h3>Education, Skills and Economic Development</h3>
-
-        <p>
-        Education plays an important role in economic development because
-        it helps people acquire knowledge and practical skills. However,
-        education should not be understood only as the memorization of
-        information. A strong educational system also develops the ability
-        to analyse problems, communicate clearly and make responsible
-        decisions.
-        </p>
-
-        <p>
-        In a changing economy, workers may need to learn new skills several
-        times during their professional lives. Technology can create new
-        opportunities, but it can also change the nature of existing jobs.
-        For this reason, students who develop the habit of continuous
-        learning may be better prepared to adapt to new professional
-        environments.
-        </p>
-
-        <p>
-        Economic development also depends on institutions, infrastructure
-        and investment. Natural resources can generate considerable
-        economic activity, but resources alone do not automatically create
-        broad and sustainable development. Human capital, responsible
-        management and productive investment are also important.
-        </p>
-
-        <p>
-        The central challenge is therefore not simply to produce more
-        information, but to transform knowledge into useful skills and
-        responsible action.
-        </p>
-
-    </div>
-
-    <br>
-
-    <button id="startEnglishQuestions" class="primary" onclick="startEnglishQuestions()" disabled>
-        Start the questions
-    </button>
-
-</div>
-
-
-<!-- =========================
-     QUIZ
-========================= -->
-
-<div id="quiz" class="card hidden">
-
-    <div class="header">
-
-        <span id="subject" class="badge">
-            Matière
-        </span>
-
-        <span class="timer">
-            ⏱ <span id="time">60</span>s
-        </span>
-
-    </div>
-
-    <div class="progress">
-        <div id="progressBar" class="progress-bar"></div>
-    </div>
-
-    <div id="questionNumber" class="question-number"></div>
-
-    <div id="question" class="question"></div>
-
-    <div id="options" class="options"></div>
-
-    <button
-        id="nextButton"
-        class="next"
-        onclick="nextQuestion()"
-        disabled
-    >
-        Question suivante
-    </button>
-
-</div>
-
-
-<!-- =========================
-     RESULTATS
-========================= -->
+<!-- ================= RESULTATS ================= -->
 
 <div id="results" class="card hidden">
 
-    <h2 style="text-align:center">
-        Résultats du test
-    </h2>
+<div class="center">
 
-    <p style="text-align:center">
-        Participant :
-        <strong id="resultName"></strong>
-    </p>
+<h1>Résultats</h1>
 
-    <div class="score">
-        <span id="finalScore">0</span>/100
-    </div>
+<p id="candidateResult"></p>
 
-    <div class="result-line">
-        Pourcentage :
-        <strong id="percentage"></strong>
-    </div>
+<div class="result-score">
+<span id="scoreResult">0</span>/100
+</div>
 
-    <div class="result-line">
-        Bonnes réponses :
-        <strong id="correctCount"></strong>
-    </div>
+<div class="percent">
+<span id="percentResult">0%</span>
+</div>
 
-    <div class="result-line">
-        Mauvaises réponses :
-        <strong id="wrongCount"></strong>
-    </div>
+<div class="result-box">
+<strong>Culture générale :</strong>
+<span id="cultureResult"></span>
+</div>
 
-    <div class="result-line">
-        Questions sans réponse :
-        <strong id="blankCount"></strong>
-    </div>
+<div class="result-box">
+<strong>Français :</strong>
+<span id="frenchResult"></span>
+</div>
 
-    <h3>Résultats par matière</h3>
+<div class="result-box">
+<strong>Anglais :</strong>
+<span id="englishResult"></span>
+</div>
 
-    <div id="subjectResults"></div>
+<div class="result-box">
+<strong>Mathématiques / Logique :</strong>
+<span id="mathResult"></span>
+</div>
 
-    <hr>
+</div>
 
-    <h2>📕 Carnet d'erreurs</h2>
+<h2>Vos erreurs</h2>
 
-    <div id="errors"></div>
+<div id="errors"></div>
 
-    <button class="primary" onclick="location.reload()">
-        Recommencer
-    </button>
+<button class="main-btn" onclick="copyResults()">
+📋 Copier mes résultats
+</button>
+
+<p id="copyMessage" class="center"></p>
+
+</div>
+
+
+<!-- ================= VERROUILLAGE ================= -->
+
+<div id="locked" class="card hidden locked">
+
+<div class="lock-icon">🔒</div>
+
+<h1>Test verrouillé</h1>
+
+<p>
+Cette tentative a été interrompue parce que la page du test
+a été quittée ou rendue inactive.
+</p>
+
+<p>
+<strong>Résultat : tentative annulée pour violation des règles.</strong>
+</p>
+
+<p>
+Veuillez contacter l'administrateur si cette interruption
+résulte d'un problème technique.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ================= MODAL TEXTE ================= -->
+
+<div id="readingModal" class="modal hidden">
+
+<div class="modal-content">
+
+<div id="readingTitle" class="text-title"></div>
+
+<div class="reading-timer">
+Temps de lecture prévu :
+<span id="readingTimer">15:00</span>
+</div>
+
+<div id="readingContent" class="reading-text"></div>
+
+<button class="main-btn" onclick="closeReading()">
+Retour au test
+</button>
 
 </div>
 
@@ -548,270 +553,399 @@ button{
 
 <script>
 
-/* ==========================================================
-   QUESTIONS
-========================================================== */
+/* =========================================================
+   TEXTES
+========================================================= */
+
+const frenchText = `
+
+Dans une économie en transformation, la réussite d’un pays ne dépend
+pas exclusivement de l’abondance de ses ressources naturelles.
+Les ressources constituent un potentiel, mais leur contribution réelle
+au développement dépend de la manière dont elles sont exploitées,
+transformées et gérées.
+
+Une économie fortement dépendante de l’exportation de matières premières
+reste exposée aux fluctuations des prix internationaux. Une baisse
+importante du prix d’un produit stratégique peut réduire les recettes
+publiques, ralentir les investissements et affecter indirectement
+l’emploi. La diversification économique constitue donc un moyen
+de réduire cette vulnérabilité.
+
+La transformation locale des ressources peut également créer davantage
+de valeur ajoutée. Lorsqu’une matière première est exportée sans
+transformation, une partie importante de la chaîne de valeur se trouve
+à l’extérieur du pays producteur. À l’inverse, le développement
+d’industries de transformation peut favoriser la création d’emplois,
+le développement des compétences et l’émergence de nouvelles entreprises.
+
+Cependant, la diversification ne consiste pas simplement à multiplier
+les secteurs économiques. Elle exige des infrastructures adaptées,
+une main-d’œuvre qualifiée, un accès fiable à l’énergie, des institutions
+efficaces et un environnement favorable à l’investissement.
+
+L’éducation joue ainsi un rôle central. Une économie moderne a besoin
+de techniciens, d’ingénieurs, de gestionnaires, de comptables,
+d’entrepreneurs et de chercheurs capables de résoudre des problèmes
+complexes. Le capital humain devient donc un facteur déterminant
+de la compétitivité.
+
+La bonne gouvernance constitue un autre élément essentiel. La gestion
+des ressources publiques doit reposer sur des règles claires,
+la responsabilité, la transparence et le contrôle. Le développement
+économique durable ne peut être séparé de la qualité des institutions.
+
+Enfin, une stratégie économique durable doit prendre en compte
+l’environnement. L’exploitation minière, agricole ou forestière
+peut produire des revenus importants, mais elle doit être accompagnée
+de mesures permettant de limiter les dégradations environnementales
+et de préserver les possibilités offertes aux générations futures.
+`;
+
+const englishText = `
+
+Economic development is not simply a matter of increasing the quantity
+of goods produced by a country. It also involves improving productivity,
+developing human capital, strengthening institutions and creating
+conditions in which businesses and individuals can invest in the future.
+
+Natural resources can provide substantial income, especially in countries
+with large deposits of minerals, oil or gas. However, dependence on
+natural resources can create economic vulnerability. International
+commodity prices may change rapidly, while production itself can be
+affected by infrastructure, energy supply and technological limitations.
+
+For this reason, economic diversification is often considered an
+important long-term objective. A diversified economy is not necessarily
+an economy without mining or agriculture. Rather, it is an economy in
+which several productive activities contribute to national income and
+employment.
+
+Education is closely connected with this process. Skilled workers are
+better prepared to use modern technologies, improve production methods
+and create innovative businesses. Universities, technical schools and
+professional training institutions can therefore contribute to economic
+transformation.
+
+Good institutions are equally important. Investors generally require
+predictable rules, reliable contracts and effective public administration.
+When institutions function properly, economic actors can make decisions
+with greater certainty.
+
+Infrastructure also matters. Roads, railways, ports, electricity and
+communication networks reduce the cost of moving people, goods and
+information. Without adequate infrastructure, even a country with
+valuable natural resources may struggle to develop competitive industries.
+
+Sustainable development adds another dimension. Economic growth should
+not destroy the environmental resources on which future generations
+depend. The challenge is therefore to combine economic efficiency,
+social progress, institutional quality and environmental responsibility.
+`;
+
+
+/* =========================================================
+   100 QUESTIONS
+========================================================= */
 
 const questions = [
 
-/* ==========================================================
+/* =========================================================
+   CULTURE GENERALE — 25
+========================================================= */
+
+{
+subject:"Culture générale",
+q:"En quelle année la République démocratique du Congo a-t-elle accédé à l'indépendance ?",
+o:["1958","1959","1960","1965"],
+a:2
+},
+
+{
+subject:"Culture générale",
+q:"Combien de provinces compte actuellement la République démocratique du Congo ?",
+o:["11","21","26","30"],
+a:2
+},
+
+{
+subject:"Culture générale",
+q:"Quelle est la capitale de la République démocratique du Congo ?",
+o:["Lubumbashi","Kinshasa","Kisangani","Mbuji-Mayi"],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quelle ville est le chef-lieu du Haut-Katanga ?",
+o:["Kolwezi","Likasi","Lubumbashi","Kipushi"],
+a:2
+},
+
+{
+subject:"Culture générale",
+q:"Quel est le symbole chimique du cuivre ?",
+o:["Co","Cu","Cr","Ca"],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"La conférence de Berlin consacrée notamment au partage colonial de l'Afrique s'est ouverte en :",
+o:["1878","1884","1895","1908"],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"L'État indépendant du Congo a été reconnu comme État distinct lors de la conférence de Berlin de :",
+o:["1884-1885","1890-1891","1908-1909","1914-1915"],
+a:0
+},
+
+{
+subject:"Culture générale",
+q:"En quelle année l'État indépendant du Congo est-il devenu le Congo belge ?",
+o:["1885","1908","1910","1960"],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Le 30 juin 1960 correspond à :",
+o:[
+"La création de l'État indépendant du Congo",
+"L'indépendance du Congo",
+"La création du Congo belge",
+"La naissance de l'ONU"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Qui fut le premier Premier ministre de la République du Congo indépendante en 1960 ?",
+o:[
+"Joseph Kasa-Vubu",
+"Patrice Lumumba",
+"Mobutu Sese Seko",
+"Moïse Tshombe"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quel était le nom officiel du pays entre 1971 et 1997 ?",
+o:[
+"République du Congo",
+"République du Zaïre",
+"État du Congo",
+"Congo central"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quelle est la devise nationale de la République démocratique du Congo ?",
+o:[
+"Unité, Travail, Progrès",
+"Paix, Justice, Travail",
+"Liberté, Égalité, Fraternité",
+"Justice, Liberté, Patrie"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"La Constitution actuelle de la RDC a été adoptée par référendum en :",
+o:["2001","2003","2005","2011"],
+a:2
+},
+
+{
+subject:"Culture générale",
+q:"Les institutions politiques provinciales prévues par la Constitution comprennent notamment :",
+o:[
+"Le Sénat et la Cour constitutionnelle",
+"L'Assemblée provinciale et le Gouvernement provincial",
+"L'Assemblée nationale et le Sénat",
+"Le Gouvernement central et le Parlement"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quel est le principal organe législatif de la province ?",
+o:[
+"Le Gouvernement provincial",
+"L'Assemblée provinciale",
+"La Cour constitutionnelle",
+"Le Conseil des ministres"
+],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quel est le siège des principales institutions nationales de la RDC ?",
+o:["Lubumbashi","Kinshasa","Kisangani","Goma"],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quel fleuve porte le même nom que la République démocratique du Congo ?",
+o:["Congo","Niger","Zambèze","Nil"],
+a:0
+},
+
+{
+subject:"Culture générale",
+q:"Quel bassin hydrographique est principalement associé au fleuve Congo ?",
+o:[
+"Le bassin du Congo",
+"Le bassin du Nil",
+"Le bassin du Niger",
+"Le bassin du Zambèze"
+],
+a:0
+},
+
+{
+subject:"Culture générale",
+q:"La ville de Mbuji-Mayi est historiquement associée à l'exploitation industrielle de :",
+o:["Diamant","Pétrole","Cuivre","Uranium"],
+a:0
+},
+
+{
+subject:"Culture générale",
+q:"La région du Haut-Katanga est particulièrement connue pour ses ressources :",
+o:[
+"Cuprifères et cobaltifères",
+"Pétrolières uniquement",
+"Charbonnières uniquement",
+"Diamantifères uniquement"
+],
+a:0
+},
+
+{
+subject:"Culture générale",
+q:"Le terme « cuprifère » signifie :",
+o:[
+"Qui contient du cuivre",
+"Qui contient du charbon",
+"Qui contient de l'or uniquement",
+"Qui produit de l'eau"
+],
+a:0
+},
+
+{
+subject:"Culture générale",
+q:"Quel organe est principalement responsable du pompage du sang ?",
+o:["Le foie","Le cœur","Le rein","Le poumon"],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quel gaz est indispensable à la respiration humaine ?",
+o:["Azote","Oxygène","Hydrogène","Hélium"],
+a:1
+},
+
+{
+subject:"Culture générale",
+q:"Quel est le plus grand océan du monde ?",
+o:["Atlantique","Indien","Pacifique","Arctique"],
+a:2
+},
+
+{
+subject:"Culture générale",
+q:"Quelle planète est appelée la planète rouge ?",
+o:["Vénus","Mars","Jupiter","Mercure"],
+a:1
+},
+
+
+/* =========================================================
    FRANÇAIS — 25
-========================================================== */
+========================================================= */
 
 {
 subject:"Français",
-text:true,
-q:"Selon le texte, pourquoi la technologie ne garantit-elle pas à elle seule le développement ?",
+q:"Dans la phrase « Les lettres que j'ai écrites sont importantes », pourquoi « écrites » prend-il un -es ?",
 o:[
-"Parce qu'elle empêche les échanges internationaux.",
-"Parce que l'éducation, la formation et les institutions jouent également un rôle.",
-"Parce que les entreprises refusent toujours la technologie.",
-"Parce que les étudiants ne peuvent pas accéder à l'information."
+"Parce que le sujet est féminin",
+"Parce que le COD placé avant est « que », représentant « les lettres »",
+"Parce que le verbe être est sous-entendu",
+"Parce que tous les participes passés prennent -es"
 ],
-a:1
+a:1,
+text:"fr"
 },
 
 {
 subject:"Français",
-text:true,
-q:"Dans le texte, que signifie l'expression « capital humain » ?",
-o:[
-"Les ressources minières d'un pays.",
-"Les infrastructures technologiques.",
-"Les connaissances, compétences et capacités des personnes.",
-"Les capitaux détenus uniquement par les entreprises."
-],
-a:2
+q:"Dans « Bien qu'il ait raison, il doit vérifier ses calculs », le verbe « ait » est au :",
+o:["Indicatif","Subjonctif","Conditionnel","Impératif"],
+a:1,
+text:"fr"
 },
 
 {
 subject:"Français",
-text:true,
-q:"Quelle idée principale est défendue dans le dernier paragraphe ?",
-o:[
-"Tout progrès technique est inutile.",
-"La technologie doit contribuer à répondre à des besoins réels.",
-"Les sociétés doivent abandonner les innovations.",
-"Les entreprises doivent remplacer les travailleurs."
-],
-a:1
-},
-
-{
-subject:"Français",
-text:true,
-q:"Dans « une utilisation responsable des ressources », le mot « responsable » est :",
-o:[
-"Un nom.",
-"Un adjectif qualificatif.",
-"Un adverbe.",
-"Un pronom."
-],
-a:1
-},
-
-{
-subject:"Français",
-text:true,
-q:"Le texte oppose principalement :",
-o:[
-"la technologie et la science.",
-"le progrès technique et le progrès social durable.",
-"l'école et l'entreprise.",
-"les ressources et les marchés."
-],
-a:1
-},
-
-{
-subject:"Français",
-q:"Quelle phrase respecte l'accord du participe passé ?",
-o:[
-"Les lettres que j'ai écrit.",
-"Les lettres que j'ai écrites.",
-"Les lettres que j'ai écrite.",
-"Les lettres que j'ai écrits."
-],
-a:1
-},
-
-{
-subject:"Français",
-q:"Dans « Les erreurs qu'elle a commises », pourquoi « commises » prend-il un -es ?",
-o:[
-"Parce que le sujet est féminin pluriel.",
-"Parce que le COD placé avant le verbe est féminin pluriel.",
-"Parce que le verbe est au présent.",
-"Parce que « erreurs » est un sujet."
-],
-a:1
-},
-
-{
-subject:"Français",
-q:"Quelle phrase contient un COD ?",
-o:[
-"Il parle à son frère.",
-"Elle pense à son avenir.",
-"Paul lit un roman.",
-"Nous allons au marché."
-],
-a:2
-},
-
-{
-subject:"Français",
-q:"Dans « Je leur parle », quelle est la fonction de « leur » ?",
-o:[
-"COD",
-"COI",
-"Sujet",
-"Attribut"
-],
-a:1
-},
-
-{
-subject:"Français",
-q:"Quelle phrase contient un COS ?",
-o:[
-"Il mange une pomme.",
-"Elle donne un livre à son frère.",
-"Nous dormons.",
-"Paul arrive demain."
-],
-a:1
-},
-
-{
-subject:"Français",
-q:"Quel pronom relatif convient : « La personne ___ je parle arrive demain » ?",
-o:[
-"que",
-"dont",
-"où",
-"laquelle"
-],
-a:1
-},
-
-{
-subject:"Français",
-q:"Quel est le mode dans « Il faut que tu travailles » ?",
-o:[
-"Indicatif",
-"Conditionnel",
-"Subjonctif",
-"Impératif"
-],
-a:2
-},
-
-{
-subject:"Français",
-q:"Quelle phrase est correcte ?",
-o:[
-"Bien qu'il est intelligent, il échoue.",
-"Bien qu'il soit intelligent, il échoue.",
-"Bien qu'il sera intelligent, il échoue.",
-"Bien qu'il était intelligent, il échoue."
-],
-a:1
-},
-
-{
-subject:"Français",
-q:"« Si j'avais étudié, j'aurais réussi » exprime :",
-o:[
-"Une condition réelle.",
-"Une hypothèse irréelle dans le passé.",
-"Une vérité générale.",
-"Un ordre."
-],
-a:1
-},
-
-{
-subject:"Français",
-q:"Quel est le temps de « nous eûmes terminé » ?",
-o:[
-"Passé composé",
-"Plus-que-parfait",
-"Passé antérieur",
-"Futur antérieur"
-],
-a:2
-},
-
-{
-subject:"Français",
-q:"Quel est le temps de « il avait terminé » ?",
-o:[
-"Imparfait",
-"Plus-que-parfait",
-"Passé antérieur",
-"Passé simple"
-],
+q:"Dans « Il avait terminé son travail avant midi », le verbe « avait terminé » est au :",
+o:["Passé composé","Plus-que-parfait","Passé antérieur","Imparfait"],
 a:1
 },
 
 {
 subject:"Français",
 q:"Dans « Il travaille rapidement », « rapidement » est :",
-o:[
-"Un adjectif",
-"Un adverbe",
-"Un déterminant",
-"Un pronom"
-],
+o:["Un adjectif","Un adverbe","Un pronom","Un déterminant"],
+a:1
+},
+
+{
+subject:"Français",
+q:"Dans « Les élèves dont je parle sont sérieux », « dont » est :",
+o:["Un pronom relatif","Un déterminant","Un adverbe","Une conjonction"],
+a:0
+},
+
+{
+subject:"Français",
+q:"Quel est le synonyme le plus précis de « perspicace » ?",
+o:["Distrait","Lucide","Lent","Indécis"],
 a:1
 },
 
 {
 subject:"Français",
 q:"Quel est l'antonyme de « éphémère » ?",
-o:[
-"Passager",
-"Durable",
-"Fragile",
-"Momentané"
-],
-a:1
+o:["Bref","Passager","Durable","Fragile"],
+a:2
 },
 
 {
 subject:"Français",
-q:"Quelle figure de style rapproche deux éléments avec un outil comparatif comme « comme » ?",
-o:[
-"Métaphore",
-"Comparaison",
-"Personnification",
-"Hyperbole"
-],
-a:1
+q:"Dans « Paul mange une pomme », « une pomme » est :",
+o:["COD","COI","COS","Attribut"],
+a:0
 },
 
 {
 subject:"Français",
-q:"Dans « Cette décision est importante », « importante » est :",
-o:[
-"COD",
-"Attribut du sujet",
-"COI",
-"Complément circonstanciel"
-],
-a:1
-},
-
-{
-subject:"Français",
-q:"Quel mot est correctement orthographié ?",
-o:[
-"Acceuillir",
-"Accueillir",
-"Acueillir",
-"Accueuillir"
-],
+q:"Dans « Nous parlons à nos professeurs », « à nos professeurs » est :",
+o:["COD","COI","Attribut","Sujet"],
 a:1
 },
 
@@ -819,1583 +953,1291 @@ a:1
 subject:"Français",
 q:"Quelle forme est correcte ?",
 o:[
-"Tout les élèves",
-"Touts les élèves",
-"Tous les élèves",
-"Toutes les élèves"
-],
-a:2
-},
-
-{
-subject:"Français",
-q:"Dans « Quelques élèves sont absents », « quelques » est :",
-o:[
-"Un adverbe",
-"Un déterminant indéfini",
-"Un pronom relatif",
-"Un verbe"
+"Les erreurs qu'il a commis",
+"Les erreurs qu'il a commises",
+"Les erreurs qu'il a commise",
+"Les erreurs qu'il a commiseses"
 ],
 a:1
 },
 
 {
 subject:"Français",
-q:"Quelle phrase est correctement écrite ?",
-o:[
-"Quoiqu'il soit tard, il continue.",
-"Quoi qu'il soit tard, il continue.",
-"Quoi qu'il est tard, il continue.",
-"Quoiqu'il sera tard, il continue."
-],
+q:"Quel est le féminin correct de « acteur » ?",
+o:["Acteuse","Actrice","Acteure","Actoresse"],
+a:1
+},
+
+{
+subject:"Français",
+q:"Quel est le féminin correct de « héros » ?",
+o:["Héroïne","Hérosse","Héroesse","Héroïse"],
 a:0
 },
 
 {
 subject:"Français",
-q:"Dans « Il est nécessaire que vous veniez », le verbe « veniez » est au :",
+q:"Quel mot est correctement orthographié ?",
+o:["Acceuillir","Accueillir","Acueillir","Accueuillir"],
+a:1
+},
+
+{
+subject:"Français",
+q:"Dans « Cette décision est importante », « importante » est :",
+o:["COD","Attribut du sujet","COI","Adverbe"],
+a:1
+},
+
+{
+subject:"Français",
+q:"Dans « Je partirai lorsque tu arriveras », « lorsque tu arriveras » est :",
 o:[
-"Présent du subjonctif",
-"Imparfait de l'indicatif",
-"Présent de l'indicatif",
-"Conditionnel présent"
+"Une proposition principale",
+"Une proposition subordonnée circonstancielle",
+"Une proposition indépendante",
+"Un groupe nominal"
 ],
+a:1
+},
+
+{
+subject:"Français",
+q:"Quel mode verbal exprime notamment le doute, le souhait ou la nécessité ?",
+o:["Indicatif","Subjonctif","Infinitif","Participe"],
+a:1
+},
+
+{
+subject:"Français",
+q:"Quel est le temps de « nous eûmes terminé » ?",
+o:["Passé antérieur","Plus-que-parfait","Futur antérieur","Passé composé"],
 a:0
 },
 
+{
+subject:"Français",
+q:"Quelle phrase contient une comparaison ?",
+o:[
+"Cet homme est un lion.",
+"Cet homme est fort comme un lion.",
+"Cet homme rugit.",
+"Cet homme est très fort."
+],
+a:1
+},
 
-/* ==========================================================
+{
+subject:"Français",
+q:"« Cet homme est un lion » constitue principalement une :",
+o:["Comparaison","Métaphore","Litote","Anaphore"],
+a:1
+},
+
+{
+subject:"Français",
+q:"Quelle phrase contient une hyperbole ?",
+o:[
+"Il marche rapidement.",
+"Je t'ai appelé mille fois.",
+"Il est arrivé hier.",
+"Il travaille sérieusement."
+],
+a:1
+},
+
+{
+subject:"Français",
+q:"Quel est le contraire de « généreux » ?",
+o:["Altruiste","Patient","Avare","Prodigue"],
+a:2
+},
+
+{
+subject:"Français",
+q:"Quel mot est un déterminant démonstratif ?",
+o:["Ce","Qui","Leur","Très"],
+a:0
+},
+
+{
+subject:"Français",
+q:"Dans « Nous leur avons parlé », « leur » est :",
+o:["COD","COI","Sujet","Attribut"],
+a:1
+},
+
+{
+subject:"Français",
+q:"Quel est le bon homophone dans « Il ___ raison » ?",
+o:["à","a","as","ah"],
+a:1
+},
+
+{
+subject:"Français",
+q:"Quelle forme est correcte ?",
+o:[
+"Bien qu'il est raison",
+"Bien qu'il ait raison",
+"Bien qu'il a raison",
+"Bien qu'il aura raison"
+],
+a:1
+},
+
+
+/* =========================================================
    ANGLAIS — 25
-========================================================== */
+========================================================= */
 
 {
-subject:"Anglais",
-text:true,
-q:"According to the text, what is one purpose of education?",
+subject:"English",
+q:"According to the text, economic development involves more than increasing:",
 o:[
-"Only memorizing information.",
-"Developing knowledge and practical skills.",
-"Replacing all workers with technology.",
-"Preventing economic change."
+"the number of schools",
+"the quantity of goods produced",
+"the number of workers",
+"the price of goods"
 ],
-a:1
+a:1,
+text:"en"
 },
 
 {
-subject:"Anglais",
-text:true,
-q:"According to the text, why may workers need to learn new skills?",
+subject:"English",
+q:"According to the text, dependence on natural resources can create:",
 o:[
-"Because technology can change existing jobs.",
-"Because schools no longer exist.",
-"Because information is disappearing.",
-"Because companies cannot use technology."
+"economic vulnerability",
+"perfect stability",
+"lower education",
+"political independence"
 ],
-a:0
+a:0,
+text:"en"
 },
 
 {
-subject:"Anglais",
-text:true,
-q:"What does the text say about natural resources?",
+subject:"English",
+q:"According to the text, a diversified economy:",
 o:[
-"They automatically create sustainable development.",
-"They have no economic value.",
-"They can generate economic activity but are not sufficient alone.",
-"They must never be used."
+"must abandon agriculture",
+"must abandon mining",
+"can include several productive activities",
+"cannot depend on exports"
 ],
-a:2
+a:2,
+text:"en"
 },
 
 {
-subject:"Anglais",
-text:true,
-q:"In the text, what does « continuous learning » mean?",
+subject:"English",
+q:"According to the text, skilled workers can help to:",
 o:[
-"Never studying again.",
-"Learning only at school.",
-"Continuing to acquire knowledge and skills.",
-"Learning only through technology."
+"reduce education",
+"use modern technologies",
+"eliminate infrastructure",
+"avoid production"
 ],
-a:2
+a:1,
+text:"en"
 },
 
 {
-subject:"Anglais",
-text:true,
-q:"What is the main idea of the text?",
+subject:"English",
+q:"According to the text, sustainable development requires economic growth to:",
 o:[
-"Technology is always harmful.",
-"Education should transform knowledge into useful skills.",
-"Natural resources are unnecessary.",
-"Workers should avoid learning new skills."
+"ignore the environment",
+"destroy natural resources",
+"consider future generations",
+"stop all industrial activity"
 ],
-a:1
+a:2,
+text:"en"
 },
 
 {
-subject:"Anglais",
+subject:"English",
 q:"Choose the correct answer: She ___ to school every day.",
-o:[
-"go",
-"goes",
-"going",
-"gone"
-],
+o:["go","goes","going","gone"],
 a:1
 },
 
 {
-subject:"Anglais",
+subject:"English",
 q:"Choose the correct answer: They ___ football yesterday.",
-o:[
-"play",
-"played",
-"have play",
-"playing"
-],
+o:["play","played","have play","playing"],
 a:1
 },
 
 {
-subject:"Anglais",
+subject:"English",
 q:"Choose the correct answer: I have lived here ___ 2020.",
-o:[
-"for",
-"since",
-"during",
-"until"
-],
+o:["for","since","during","by"],
 a:1
 },
 
 {
-subject:"Anglais",
-q:"Choose the correct answer: I have studied English ___ five years.",
-o:[
-"since",
-"for",
-"by",
-"until"
-],
-a:1
-},
-
-{
-subject:"Anglais",
+subject:"English",
 q:"Choose the correct answer: If I ___ enough time, I would participate.",
-o:[
-"have",
-"had",
-"will have",
-"would have"
-],
+o:["have","had","will have","would have"],
 a:1
 },
 
 {
-subject:"Anglais",
+subject:"English",
 q:"Choose the correct answer: She doesn't ___ coffee.",
-o:[
-"likes",
-"like",
-"liked",
-"liking"
-],
+o:["likes","like","liked","liking"],
 a:1
 },
 
 {
-subject:"Anglais",
+subject:"English",
+q:"Choose the correct answer: This book is ___ than that one.",
+o:["interesting","more interesting","most interesting","interest"],
+a:1
+},
+
+{
+subject:"English",
+q:"Choose the correct article: He is ___ honest man.",
+o:["a","an","the","no article"],
+a:1
+},
+
+{
+subject:"English",
 q:"Choose the correct answer: We ___ dinner when he arrived.",
-o:[
-"eat",
-"were eating",
-"have eaten",
-"eating"
-],
+o:["eat","were eating","have eaten","eating"],
 a:1
 },
 
 {
-subject:"Anglais",
-q:"Choose the correct passive form: « They built the bridge in 2020. »",
-o:[
-"The bridge built in 2020.",
-"The bridge was built in 2020.",
-"The bridge is built in 2020.",
-"The bridge has build in 2020."
-],
-a:1
-},
-
-{
-subject:"Anglais",
-q:"Choose the correct answer: The students ___ by the teacher.",
-o:[
-"were encouraged",
-"encouraged",
-"was encourage",
-"have encourage"
-],
+subject:"English",
+q:"Choose the correct passive form: The letter ___ yesterday.",
+o:["was sent","sent","is send","has send"],
 a:0
 },
 
 {
-subject:"Anglais",
-q:"Choose the correct answer: He said that he ___ tired.",
-o:[
-"is",
-"was",
-"will",
-"has"
-],
-a:1
+subject:"English",
+q:"Choose the correct modal: You ___ study harder for the exam.",
+o:["should","would","might to","can to"],
+a:0
 },
 
 {
-subject:"Anglais",
-q:"Choose the correct answer: She suggested ___ earlier.",
-o:[
-"to leave",
-"leaving",
-"leave",
-"left"
-],
-a:1
-},
-
-{
-subject:"Anglais",
-q:"Choose the correct answer: He denied ___ the money.",
-o:[
-"steal",
-"to steal",
-"stealing",
-"stole"
-],
+subject:"English",
+q:"Choose the correct preposition: I am interested ___ accounting.",
+o:["on","at","in","for"],
 a:2
 },
 
 {
-subject:"Anglais",
-q:"Choose the correct answer: You ___ study harder.",
-o:[
-"should",
-"should to",
-"would to",
-"must to"
-],
+subject:"English",
+q:"Choose the correct answer: She has ___ finished her work.",
+o:["already","yet","still","ever"],
 a:0
 },
 
 {
-subject:"Anglais",
+subject:"English",
+q:"Choose the correct answer: How long ___ you been studying English?",
+o:["has","have","are","did"],
+a:1
+},
+
+{
+subject:"English",
+q:"Choose the correct answer: He ___ his homework before going out.",
+o:["had finished","has finish","finish","finishing"],
+a:0
+},
+
+{
+subject:"English",
+q:"The opposite of 'weak' is:",
+o:["small","strong","slow","short"],
+a:1
+},
+
+{
+subject:"English",
+q:"'Thankful' means:",
+o:["angry","grateful","weak","afraid"],
+a:1
+},
+
+{
+subject:"English",
+q:"Choose the correct answer: She ___ English for five years.",
+o:["studies","has studied","study","studied yesterday"],
+a:1
+},
+
+{
+subject:"English",
 q:"Choose the correct answer: By next year, I ___ my studies.",
-o:[
-"finish",
-"finished",
-"will have finished",
-"have finish"
-],
+o:["finish","finished","will have finished","have finish"],
 a:2
 },
 
 {
-subject:"Anglais",
-q:"Choose the correct answer: I haven't seen him ___ Monday.",
-o:[
-"for",
-"since",
-"during",
-"by"
-],
+subject:"English",
+q:"Choose the correct conditional: If it rains, we ___ at home.",
+o:["stay","will stay","would stayed","stayed"],
 a:1
 },
 
 {
-subject:"Anglais",
-q:"Choose the correct answer: Wait here ___ I come back.",
-o:[
-"since",
-"until",
-"for",
-"by"
-],
+subject:"English",
+q:"Choose the correct preposition: He is good ___ mathematics.",
+o:["in","at","on","for"],
 a:1
 },
 
 {
-subject:"Anglais",
-q:"Choose the correct answer: « Give up » means:",
-o:[
-"continue",
-"abandon",
-"increase",
-"discover"
-],
-a:1
-},
-
-{
-subject:"Anglais",
-q:"Choose the correct answer: Neither John nor Peter ___ ready.",
-o:[
-"are",
-"were",
-"is",
-"be"
-],
-a:2
-},
-
-{
-subject:"Anglais",
-q:"Choose the correct answer: She speaks English ___ than I do.",
-o:[
-"better",
-"good",
-"best",
-"well"
-],
+subject:"English",
+q:"Choose the correct passive form: The students ___ by the teacher.",
+o:["were encouraged","encouraged","was encourage","have encourage"],
 a:0
 },
 
-{
-subject:"Anglais",
-q:"Choose the correct answer: I wish I ___ more time.",
-o:[
-"have",
-"had",
-"will have",
-"am having"
-],
-a:1
-},
 
-
-/* ==========================================================
+/* =========================================================
    MATHS / LOGIQUE — 25
-========================================================== */
+========================================================= */
 
 {
 subject:"Maths / Logique",
-q:"Pour f(x)=√(x−3), quel est son domaine de définition ?",
-o:[
-"]−∞ ; 3]",
-"[3 ; +∞[",
-"]3 ; +∞[",
-"R"
-],
-a:1
+q:"Déterminer l'ensemble de définition de f(x)=1/(x−3).",
+o:["R","R\\{0}","R\\{3}","[3,+∞["],
+a:2
+},
+
+{
+subject:"Maths / Logique",
+q:"Pour √(x−2), quelle condition doit vérifier x ?",
+o:["x<2","x≤2","x≥2","x>−2"],
+a:2
 },
 
 {
 subject:"Maths / Logique",
 q:"Quelle est la somme des racines de 2x²−8x+6=0 ?",
-o:[
-"−4",
-"2",
-"4",
-"6"
-],
-a:2
+o:["2","4","−4","3"],
+a:1
 },
 
 {
 subject:"Maths / Logique",
-q:"Quel est le discriminant de x²−5x+6=0 ?",
+q:"Pour ax²+bx+c=0, le discriminant Δ vaut :",
 o:[
-"1",
-"5",
-"11",
-"25"
+"b²−4ac",
+"b²+4ac",
+"4ac−b²",
+"a²−4bc"
 ],
 a:0
 },
 
 {
 subject:"Maths / Logique",
-q:"Les racines de x²−5x+6=0 sont :",
+q:"Si Δ=0 pour une équation du second degré, alors :",
 o:[
-"1 et 6",
-"2 et 3",
-"−2 et −3",
-"3 et 4"
+"elle possède deux racines réelles distinctes",
+"elle possède une racine réelle double",
+"elle n'a aucune solution réelle",
+"elle possède toujours trois solutions"
 ],
 a:1
 },
 
 {
 subject:"Maths / Logique",
-q:"Quelle est la dérivée de f(x)=x²−3x+1 ?",
-o:[
-"2x−3",
-"x−3",
-"2x+3",
-"x²−3"
-],
+q:"Quelle est la parité de la fonction f(x)=x² ?",
+o:["Paire","Impaire","Ni paire ni impaire","Périodique seulement"],
 a:0
 },
 
 {
 subject:"Maths / Logique",
-q:"Une fonction paire vérifie :",
-o:[
-"f(−x)=−f(x)",
-"f(−x)=f(x)",
-"f(x+1)=f(x)",
-"f(x)=0"
-],
-a:1
-},
-
-{
-subject:"Maths / Logique",
-q:"Une fonction impaire vérifie :",
+q:"Une fonction f est impaire lorsque :",
 o:[
 "f(−x)=f(x)",
 "f(−x)=−f(x)",
-"f(x)=1",
-"f(x+1)=f(x)"
+"f(x)=0",
+"f(x)=1"
 ],
 a:1
 },
 
 {
 subject:"Maths / Logique",
-q:"Quelle est la limite de 1/x lorsque x tend vers +∞ ?",
-o:[
-"1",
-"−1",
-"0",
-"+∞"
-],
-a:2
-},
-
-{
-subject:"Maths / Logique",
-q:"La droite x=2 est une asymptote verticale si :",
-o:[
-"f(x) tend vers 0 quand x tend vers 2.",
-"f(x) tend vers l'infini quand x tend vers 2.",
-"f(2)=0.",
-"f(2)=2."
-],
+q:"La période fondamentale de sin(x) est :",
+o:["π","2π","π/2","4π"],
 a:1
 },
 
 {
 subject:"Maths / Logique",
-q:"Quelle est la période de sin(x) ?",
-o:[
-"π/2",
-"π",
-"2π",
-"4π"
-],
-a:2
-},
-
-{
-subject:"Maths / Logique",
-q:"Quelle est la valeur de sin(π/2) ?",
-o:[
-"0",
-"1/2",
-"1",
-"−1"
-],
-a:2
-},
-
-{
-subject:"Maths / Logique",
-q:"Quelle est la valeur de cos(0) ?",
-o:[
-"0",
-"1",
-"−1",
-"2"
-],
+q:"Si f(x)=2x+3 et g(x)=x², alors (g∘f)(1) vaut :",
+o:["9","16","25","36"],
 a:1
 },
 
 {
 subject:"Maths / Logique",
-q:"Une suite arithmétique de premier terme 3 et de raison 4 a pour quatrième terme :",
-o:[
-"11",
-"12",
-"15",
-"19"
-],
-a:2
-},
-
-{
-subject:"Maths / Logique",
-q:"Une suite géométrique de premier terme 2 et de raison 3 a pour troisième terme :",
-o:[
-"6",
-"9",
-"18",
-"27"
-],
-a:2
-},
-
-{
-subject:"Maths / Logique",
-q:"Quelle est la probabilité d'obtenir un nombre pair avec un dé équilibré à six faces ?",
-o:[
-"1/6",
-"1/3",
-"1/2",
-"2/3"
-],
-a:2
-},
-
-{
-subject:"Maths / Logique",
-q:"Une urne contient 3 boules rouges et 2 boules bleues. La probabilité de tirer une boule rouge est :",
-o:[
-"2/5",
-"3/5",
-"1/2",
-"3/2"
-],
+q:"Si f(x)=x+2 et g(x)=3x, alors (f∘g)(2) vaut :",
+o:["6","8","10","12"],
 a:1
 },
 
 {
 subject:"Maths / Logique",
-q:"La moyenne de 8, 10 et 12 est :",
-o:[
-"9",
-"10",
-"11",
-"12"
-],
+q:"lim(x→∞) 1/x vaut :",
+o:["1","−1","0","+∞"],
+a:2
+},
+
+{
+subject:"Maths / Logique",
+q:"lim(x→∞) (2x+1)/x vaut :",
+o:["0","1","2","+∞"],
+a:2
+},
+
+{
+subject:"Maths / Logique",
+q:"La droite x=3 est une asymptote verticale possible pour f(x)=1/(x−3).",
+o:["Vrai","Faux","Seulement si x=0","Seulement si x<3"],
+a:0
+},
+
+{
+subject:"Maths / Logique",
+q:"Quelle droite est une asymptote horizontale de f(x)=(2x+1)/(x+4) ?",
+o:["y=0","y=1","y=2","x=−4"],
+a:2
+},
+
+{
+subject:"Maths / Logique",
+q:"Quelle condition est nécessaire pour log_a(x) être défini dans R ?",
+o:["a>0 et a≠1 et x>0","a<0 et x>0","a=1 et x>0","x<0"],
+a:0
+},
+
+{
+subject:"Maths / Logique",
+q:"Si log10(1000)=x, alors x vaut :",
+o:["2","3","10","100"],
+a:1
+},
+
+{
+subject:"Maths / Logique",
+q:"Résoudre 3x+5=20.",
+o:["3","5","7","8"],
+a:1
+},
+
+{
+subject:"Maths / Logique",
+q:"√81 vaut :",
+o:["7","8","9","10"],
+a:2
+},
+
+{
+subject:"Maths / Logique",
+q:"3/4 + 1/4 vaut :",
+o:["1/2","1","3/8","4/8"],
+a:1
+},
+
+{
+subject:"Maths / Logique",
+q:"Le carré de 12 vaut :",
+o:["124","132","144","154"],
+a:2
+},
+
+{
+subject:"Maths / Logique",
+q:"2³ × 2² vaut :",
+o:["16","32","64","128"],
 a:1
 },
 
 {
 subject:"Maths / Logique",
 q:"Si 20 % d'un nombre vaut 30, ce nombre vaut :",
-o:[
-"100",
-"120",
-"150",
-"180"
-],
+o:["100","120","150","180"],
 a:2
 },
 
 {
 subject:"Maths / Logique",
-q:"Si 3x+5=20, alors x vaut :",
-o:[
-"3",
-"5",
-"7",
-"10"
-],
+q:"Un triangle possède deux angles de 50° et 60°. Le troisième angle vaut :",
+o:["60°","70°","80°","90°"],
 a:1
-},
-
-{
-subject:"Maths / Logique",
-q:"Quel est le résultat de 2³×2² ?",
-o:[
-"16",
-"32",
-"64",
-"128"
-],
-a:1
-},
-
-{
-subject:"Maths / Logique",
-q:"Quel est le résultat de √144 ?",
-o:[
-"10",
-"11",
-"12",
-"14"
-],
-a:2
-},
-
-{
-subject:"Maths / Logique",
-q:"Si A>B et B>C, alors :",
-o:[
-"A<C",
-"A=C",
-"A>C",
-"B>A"
-],
-a:2
-},
-
-{
-subject:"Maths / Logique",
-q:"Complète la suite : 2, 4, 8, 16, ...",
-o:[
-"20",
-"24",
-"30",
-"32"
-],
-a:3
-},
-
-{
-subject:"Maths / Logique",
-q:"Quelle est la valeur de |−7| ?",
-o:[
-"−7",
-"0",
-"7",
-"14"
-],
-a:2
 },
 
 {
 subject:"Maths / Logique",
 q:"Un père a 40 ans et son fils 10 ans. Dans combien d'années le père aura-t-il deux fois l'âge du fils ?",
-o:[
-"5",
-"10",
-"20",
-"30"
-],
-a:2
-},
-
-
-/* ==========================================================
-   CULTURE GÉNÉRALE — 25
-========================================================== */
-
-{
-subject:"Culture générale",
-q:"En quelle année la République démocratique du Congo a-t-elle accédé à l'indépendance ?",
-o:[
-"1958",
-"1959",
-"1960",
-"1965"
-],
+o:["10","15","20","25"],
 a:2
 },
 
 {
-subject:"Culture générale",
-q:"En quelle année l'État indépendant du Congo est-il devenu le Congo belge ?",
-o:[
-"1885",
-"1908",
-"1914",
-"1960"
-],
-a:1
-},
-
-{
-subject:"Culture générale",
-q:"La conférence de Berlin sur l'Afrique a débuté en :",
-o:[
-"1878",
-"1884",
-"1895",
-"1908"
-],
-a:1
-},
-
-{
-subject:"Culture générale",
-q:"Quelle est la capitale de la RDC ?",
-o:[
-"Lubumbashi",
-"Kinshasa",
-"Kisangani",
-"Mbuji-Mayi"
-],
-a:1
-},
-
-{
-subject:"Culture générale",
-q:"Selon la Constitution, quelle est la langue officielle de la RDC ?",
-o:[
-"Le lingala",
-"Le swahili",
-"Le français",
-"Le tshiluba"
-],
-a:2
-},
-
-{
-subject:"Culture générale",
-q:"La RDC compte combien de provinces dotées de la personnalité juridique, selon l'article 2 de la Constitution ?",
-o:[
-"10",
-"24",
-"25",
-"26"
-],
-a:2
-},
-
-{
-subject:"Culture générale",
-q:"Quelle ville a le statut de province et constitue la capitale de la RDC ?",
-o:[
-"Lubumbashi",
-"Kinshasa",
-"Kolwezi",
-"Matadi"
-],
-a:1
-},
-
-{
-subject:"Culture générale",
-q:"Quel est le chef-lieu du Haut-Katanga ?",
-o:[
-"Likasi",
-"Kolwezi",
-"Lubumbashi",
-"Kipushi"
-],
-a:2
-},
-
-{
-subject:"Culture générale",
-q:"Quel est le symbole chimique du cuivre ?",
-o:[
-"Co",
-"Cu",
-"Cr",
-"Ca"
-],
-a:1
-},
-
-{
-subject:"Culture générale",
-q:"Le bassin du Congo est principalement associé à quel type de milieu naturel ?",
-o:[
-"Une grande forêt tropicale",
-"Un désert chaud",
-"Une toundra",
-"Une steppe polaire"
-],
-a:0
-},
-
-{
-subject:"Culture générale",
-q:"Quel est le plus grand océan du monde ?",
-o:[
-"Atlantique",
-"Indien",
-"Pacifique",
-"Arctique"
-],
-a:2
-},
-
-{
-subject:"Culture générale",
-q:"Quel est le plus grand continent par superficie ?",
-o:[
-"Afrique",
-"Asie",
-"Europe",
-"Océanie"
-],
-a:1
-},
-
-{
-subject:"Culture générale",
-q:"Quel pays est appelé le « pays du Soleil-Levant » ?",
-o:[
-"Chine",
-"Japon",
-"Inde",
-"Corée du Sud"
-],
-a:1
-},
-
-{
-subject:"Culture générale",
-q:"Quel est le plus grand désert chaud du monde ?",
-o:[
-"Gobi",
-"Kalahari",
-"Sahara",
-"Atacama"
-],
-a:2
-},
-
-{
-subject:"Culture générale",
-q:"Quelle planète est surnommée la planète rouge ?",
-o:[
-"Vénus",
-"Mars",
-"Jupiter",
-"Mercure"
-],
-a:1
-},
-
-{
-subject:"Culture générale",
-q:"Quel organe pompe le sang dans le corps humain ?",
-o:[
-"Le foie",
-"Le rein",
-"Le cœur",
-"Le poumon"
-],
-a:2
-},
-
-{
-subject:"Culture générale",
-q:"Quel gaz est indispensable à la respiration humaine ?",
-o:[
-"Azote",
-"Oxygène",
-"Hydrogène",
-"Hélium"
-],
-a:1
-},
-
-{
-subject:"Culture générale",
-q:"Quel instrument mesure la température ?",
-o:[
-"Baromètre",
-"Thermomètre",
-"Hygromètre",
-"Altimètre"
-],
-a:1
-},
-
-{
-subject:"Culture générale",
-q:"Quel est le siège principal de l'Organisation des Nations unies ?",
-o:[
-"Paris",
-"Genève",
-"New York",
-"Washington"
-],
-a:2
-},
-
-{
-subject:"Culture générale",
-q:"Combien de membres permanents possède le Conseil de sécurité de l'ONU ?",
-o:[
-"3",
-"4",
-"5",
-"10"
-],
-a:2
-},
-
-{
-subject:"Culture générale",
-q:"Quelle organisation continentale a succédé à l'Organisation de l'unité africaine ?",
-o:[
-"CEDEAO",
-"Union africaine",
-"SADC",
-"CEMAC"
-],
-a:1
-},
-
-{
-subject:"Culture générale",
-q:"Quelle est la monnaie officielle de la RDC ?",
-o:[
-"Franc CFA",
-"Franc congolais",
-"Shilling",
-"Kwacha"
-],
-a:1
-},
-
-{
-subject:"Culture générale",
-q:"Quel fleuve porte le même nom que la République démocratique du Congo ?",
-o:[
-"Le Congo",
-"Le Niger",
-"Le Nil",
-"Le Zambèze"
-],
-a:0
-},
-
-{
-subject:"Culture générale",
-q:"La RDC appartient principalement à quel continent ?",
-o:[
-"Asie",
-"Afrique",
-"Europe",
-"Amérique"
-],
-a:1
-},
-
-{
-subject:"Culture générale",
-q:"Quelle est la devise inscrite dans la Constitution de la RDC ?",
-o:[
-"Unité, Travail, Progrès",
-"Justice, Paix, Travail",
-"Liberté, Égalité, Fraternité",
-"Paix, Travail, Solidarité"
-],
+subject:"Maths / Logique",
+q:"Un père regarde un portrait et dit : « Je n'ai ni frère ni sœur, mais le père de cet homme est le fils de mon père. » Qui est l'homme du portrait ?",
+o:["Son frère","Son fils","Son père","Son cousin"],
 a:1
 }
 
 ];
 
 
-/* ==========================================================
+/* =========================================================
    VARIABLES
-========================================================== */
-
-let participant = "";
+========================================================= */
 
 let current = 0;
-
 let score = 0;
-
 let selected = null;
 
 let questionTimer = null;
+let questionTime = 60;
 
-let readingTimer = null;
+let candidate = "";
 
 let answers = [];
 
-let frenchReadingFinished = false;
+let locked = false;
 
-let englishReadingFinished = false;
+let currentText = null;
 
+let readingIntervals = {
+    fr:null,
+    en:null
+};
 
-/* ==========================================================
-   ELEMENTS
-========================================================== */
-
-const home = document.getElementById("home");
-
-const frenchReading =
-document.getElementById("frenchReading");
-
-const englishReading =
-document.getElementById("englishReading");
-
-const quiz =
-document.getElementById("quiz");
-
-const results =
-document.getElementById("results");
-
-const subject =
-document.getElementById("subject");
-
-const questionNumber =
-document.getElementById("questionNumber");
-
-const question =
-document.getElementById("question");
-
-const options =
-document.getElementById("options");
-
-const time =
-document.getElementById("time");
-
-const nextButton =
-document.getElementById("nextButton");
-
-const progressBar =
-document.getElementById("progressBar");
+let readingSeconds = {
+    fr:900,
+    en:900
+};
 
 
-/* ==========================================================
+/* =========================================================
    DEMARRAGE
-========================================================== */
+========================================================= */
 
 function startTest(){
 
-    participant =
-    document.getElementById("participantName")
-    .value.trim();
+    const name =
+        document.getElementById("candidateName")
+        .value.trim();
 
-    if(!participant){
-
-        alert("Veuillez entrer votre nom.");
-
+    if(name === ""){
+        alert("Veuillez entrer votre nom avant de commencer.");
         return;
     }
 
-    home.classList.add("hidden");
+    candidate = name;
 
-    frenchReading.classList.remove("hidden");
+    sessionStorage.setItem(
+        "excellentia_started",
+        "true"
+    );
 
-    startFrenchReading();
+    sessionStorage.setItem(
+        "excellentia_locked",
+        "false"
+    );
 
-}
+    document.getElementById("home")
+        .classList.add("hidden");
 
-
-/* ==========================================================
-   LECTURE FRANÇAIS — 15 MIN
-========================================================== */
-
-function startFrenchReading(){
-
-    let seconds = 15 * 60;
-
-    const timerDisplay =
-    document.getElementById("frenchReadingTimer");
-
-    readingTimer =
-    setInterval(function(){
-
-        seconds--;
-
-        let min =
-        Math.floor(seconds / 60);
-
-        let sec =
-        seconds % 60;
-
-        timerDisplay.textContent =
-        String(min).padStart(2,"0")
-        + ":"
-        + String(sec).padStart(2,"0");
-
-        if(seconds <= 0){
-
-            clearInterval(readingTimer);
-
-            frenchReadingFinished = true;
-
-            document.getElementById(
-                "startFrenchQuestions"
-            ).disabled = false;
-
-            document.getElementById(
-                "startFrenchQuestions"
-            ).textContent =
-            "Commencer les questions";
-
-            alert(
-                "Les 15 minutes de lecture sont terminées."
-            );
-        }
-
-    },1000);
-
-}
-
-
-/* ==========================================================
-   QUESTIONS FRANÇAIS
-========================================================== */
-
-function startFrenchQuestions(){
-
-    clearInterval(readingTimer);
-
-    frenchReading.classList.add("hidden");
-
-    quiz.classList.remove("hidden");
-
-    current = 0;
+    document.getElementById("test")
+        .classList.remove("hidden");
 
     loadQuestion();
-
 }
 
 
-/* ==========================================================
-   CHARGEMENT QUESTION
-========================================================== */
+/* =========================================================
+   QUESTION
+========================================================= */
 
 function loadQuestion(){
 
-    clearInterval(questionTimer);
-
-    if(current >= questions.length){
-
-        finishTest();
-
+    if(locked){
         return;
     }
 
-    const q =
-    questions[current];
+    if(current >= questions.length){
+        finishTest();
+        return;
+    }
+
+    clearInterval(questionTimer);
 
     selected = null;
 
-    nextButton.disabled = true;
+    const q = questions[current];
 
-    subject.textContent =
-    q.subject;
+    document.getElementById("subject")
+        .textContent = q.subject;
 
-    questionNumber.textContent =
-    "Question "
-    + (current + 1)
-    + " / "
-    + questions.length;
+    document.getElementById("questionNumber")
+        .textContent =
+        "Question " +
+        (current+1) +
+        " sur " +
+        questions.length;
 
-    question.textContent =
-    q.q;
+    document.getElementById("questionText")
+        .textContent = q.q;
 
-    progressBar.style.width =
-    ((current + 1) / questions.length * 100)
-    + "%";
+    const options =
+        document.getElementById("options");
 
     options.innerHTML = "";
 
-    q.o.forEach(function(option,index){
+    q.o.forEach((option,index)=>{
 
         const button =
-        document.createElement("button");
+            document.createElement("button");
 
         button.className = "option";
 
         button.textContent =
-        String.fromCharCode(65 + index)
-        + ". "
-        + option;
+            String.fromCharCode(65+index)
+            + ". "
+            + option;
 
-        button.onclick =
-        function(){
-
-            selectAnswer(index,button);
-
+        button.onclick = function(){
+            chooseAnswer(index,button);
         };
 
         options.appendChild(button);
 
     });
 
-    startQuestionTimer();
+    document.getElementById("nextButton")
+        .disabled = true;
 
+    const textButton =
+        document.getElementById("textButton");
+
+    if(q.text){
+
+        currentText = q.text;
+
+        textButton.classList.remove("hidden");
+
+    }else{
+
+        currentText = null;
+
+        textButton.classList.add("hidden");
+
+    }
+
+    document.getElementById("progressBar")
+        .style.width =
+        ((current / questions.length)*100)+"%";
+
+    startQuestionTimer();
 }
 
 
-/* ==========================================================
-   TIMER QUESTION — 60 SECONDES
-========================================================== */
+/* =========================================================
+   CHOIX REPONSE
+========================================================= */
+
+function chooseAnswer(index,button){
+
+    if(locked){
+        return;
+    }
+
+    selected = index;
+
+    document.querySelectorAll(".option")
+        .forEach(btn=>{
+            btn.classList.remove("selected");
+        });
+
+    button.classList.add("selected");
+
+    document.getElementById("nextButton")
+        .disabled = false;
+}
+
+
+/* =========================================================
+   CHRONOMETRE QUESTION
+========================================================= */
 
 function startQuestionTimer(){
 
-    let seconds = 60;
+    questionTime = 60;
 
-    time.textContent = seconds;
+    document.getElementById("questionTimer")
+        .textContent = questionTime;
 
     questionTimer =
-    setInterval(function(){
+    setInterval(()=>{
 
-        seconds--;
+        questionTime--;
 
-        time.textContent = seconds;
+        document.getElementById("questionTimer")
+            .textContent = questionTime;
 
-        if(seconds <= 0){
+        if(questionTime <= 0){
 
             clearInterval(questionTimer);
 
-            saveAnswer(null);
+            submitQuestion();
 
         }
 
     },1000);
-
 }
 
 
-/* ==========================================================
-   SELECTION
-========================================================== */
-
-function selectAnswer(index,button){
-
-    selected = index;
-
-    document
-    .querySelectorAll(".option")
-    .forEach(function(btn){
-
-        btn.classList.remove("selected");
-
-    });
-
-    button.classList.add("selected");
-
-    nextButton.disabled = false;
-
-}
-
-
-/* ==========================================================
+/* =========================================================
    QUESTION SUIVANTE
-========================================================== */
+========================================================= */
 
 function nextQuestion(){
 
     if(selected === null){
-
         return;
     }
 
-    clearInterval(questionTimer);
-
-    saveAnswer(selected);
-
+    submitQuestion();
 }
 
 
-/* ==========================================================
-   ENREGISTREMENT
-========================================================== */
+function submitQuestion(){
 
-function saveAnswer(choice){
+    clearInterval(questionTimer);
 
-    const q =
-    questions[current];
+    const q = questions[current];
 
     const isCorrect =
-    choice === q.a;
+        selected !== null &&
+        selected === q.a;
 
     if(isCorrect){
-
         score++;
-
     }
 
     answers.push({
-
-        number:current + 1,
-
+        number:current+1,
         subject:q.subject,
-
         question:q.q,
-
         selected:
-        choice === null
-        ? "Aucune réponse"
-        : q.o[choice],
-
+            selected === null
+            ? "Aucune réponse"
+            : q.o[selected],
         correct:q.o[q.a],
-
         isCorrect:isCorrect
-
     });
 
     current++;
 
-    /*
-       Après les 25 questions françaises,
-       on lance la lecture anglaise.
-    */
-
-    if(current === 25){
-
-        quiz.classList.add("hidden");
-
-        englishReading.classList.remove("hidden");
-
-        startEnglishReading();
-
-        return;
-    }
-
     loadQuestion();
-
 }
 
 
-/* ==========================================================
-   LECTURE ANGLAIS — 15 MIN
-========================================================== */
+/* =========================================================
+   TEXTES
+========================================================= */
 
-function startEnglishReading(){
+function openReading(type){
 
-    let seconds = 15 * 60;
+    currentText = type;
 
-    const timerDisplay =
-    document.getElementById("englishReadingTimer");
+    const modal =
+        document.getElementById("readingModal");
 
-    readingTimer =
-    setInterval(function(){
+    const title =
+        document.getElementById("readingTitle");
 
-        seconds--;
+    const content =
+        document.getElementById("readingContent");
 
-        let min =
-        Math.floor(seconds / 60);
+    if(type === "fr"){
 
-        let sec =
-        seconds % 60;
+        title.textContent =
+            "Texte de compréhension — Français";
 
-        timerDisplay.textContent =
-        String(min).padStart(2,"0")
-        + ":"
-        + String(sec).padStart(2,"0");
+        content.textContent =
+            frenchText;
 
-        if(seconds <= 0){
+    }else{
 
-            clearInterval(readingTimer);
+        title.textContent =
+            "Reading comprehension — English";
 
-            englishReadingFinished = true;
+        content.textContent =
+            englishText;
 
-            document.getElementById(
-                "startEnglishQuestions"
-            ).disabled = false;
+    }
 
-            alert(
-                "The 15-minute reading period is over."
-            );
+    modal.classList.remove("hidden");
+
+    startReadingTimer(type);
+}
+
+
+function closeReading(){
+
+    document.getElementById("readingModal")
+        .classList.add("hidden");
+
+    /*
+       Le chronomètre de la question
+       n'est jamais arrêté ici.
+    */
+}
+
+
+function startReadingTimer(type){
+
+    if(readingIntervals[type] !== null){
+        return;
+    }
+
+    readingIntervals[type] =
+    setInterval(()=>{
+
+        if(readingSeconds[type] > 0){
+
+            readingSeconds[type]--;
+
+            updateReadingTimer(type);
+
+        }else{
+
+            clearInterval(readingIntervals[type]);
+
+            readingIntervals[type] = null;
 
         }
 
     },1000);
 
+    updateReadingTimer(type);
 }
 
 
-/* ==========================================================
-   QUESTIONS ANGLAIS
-========================================================== */
+function updateReadingTimer(type){
 
-function startEnglishQuestions(){
+    const total =
+        readingSeconds[type];
 
-    clearInterval(readingTimer);
+    const minutes =
+        Math.floor(total/60);
 
-    englishReading.classList.add("hidden");
+    const seconds =
+        total%60;
 
-    quiz.classList.remove("hidden");
-
-    /*
-       Les questions 25 à 49
-       correspondent à l'anglais.
-    */
-
-    loadQuestion();
-
+    document.getElementById("readingTimer")
+        .textContent =
+        String(minutes).padStart(2,"0")
+        + ":"
+        + String(seconds).padStart(2,"0");
 }
 
 
-/* ==========================================================
+/* =========================================================
    FIN DU TEST
-========================================================== */
+========================================================= */
 
 function finishTest(){
 
     clearInterval(questionTimer);
 
-    quiz.classList.add("hidden");
+    document.getElementById("test")
+        .classList.add("hidden");
 
-    results.classList.remove("hidden");
-
-    document.getElementById("resultName")
-    .textContent = participant;
-
-    document.getElementById("finalScore")
-    .textContent = score;
+    document.getElementById("results")
+        .classList.remove("hidden");
 
     const percentage =
-    score;
+        Math.round(
+            (score/questions.length)*100
+        );
 
-    document.getElementById("percentage")
-    .textContent =
-    percentage + "%";
+    document.getElementById("scoreResult")
+        .textContent = score;
 
-    const correct =
-    answers.filter(
-        a => a.isCorrect
-    ).length;
+    document.getElementById("percentResult")
+        .textContent = percentage+"%";
 
-    const wrong =
-    answers.filter(
-        a => !a.isCorrect &&
-        a.selected !== "Aucune réponse"
-    ).length;
+    document.getElementById("candidateResult")
+        .textContent =
+        "Candidat : " + candidate;
 
-    const blank =
-    answers.filter(
-        a => a.selected === "Aucune réponse"
-    ).length;
+    calculateSubjectResults();
 
-    document.getElementById("correctCount")
-    .textContent = correct;
-
-    document.getElementById("wrongCount")
-    .textContent = wrong;
-
-    document.getElementById("blankCount")
-    .textContent = blank;
-
-    showSubjectResults();
-
-    showErrors();
-
+    displayErrors();
 }
 
 
-/* ==========================================================
+/* =========================================================
    RESULTATS PAR MATIERE
-========================================================== */
+========================================================= */
 
-function showSubjectResults(){
+function calculateSubjectResults(){
 
-    const box =
-    document.getElementById("subjectResults");
+    const subjects = {
 
-    box.innerHTML = "";
+        "Culture générale":{
+            total:0,
+            correct:0
+        },
 
-    const subjects = [
-        "Français",
-        "Anglais",
-        "Maths / Logique",
-        "Culture générale"
-    ];
+        "Français":{
+            total:0,
+            correct:0
+        },
 
-    subjects.forEach(function(name){
+        "English":{
+            total:0,
+            correct:0
+        },
 
-        const list =
-        answers.filter(
-            a => a.subject === name
-        );
+        "Maths / Logique":{
+            total:0,
+            correct:0
+        }
 
-        const correct =
-        list.filter(
-            a => a.isCorrect
-        ).length;
+    };
 
-        const percentage =
-        list.length
-        ? Math.round(
-            correct / list.length * 100
-          )
-        : 0;
+    answers.forEach(answer=>{
 
-        const div =
-        document.createElement("div");
+        if(subjects[answer.subject]){
 
-        div.className =
-        "result-line";
+            subjects[answer.subject].total++;
 
-        div.innerHTML =
-        "<strong>"
-        + name
-        + "</strong> : "
-        + correct
-        + "/"
-        + list.length
-        + " — "
-        + percentage
-        + "%";
+            if(answer.isCorrect){
+                subjects[answer.subject].correct++;
+            }
 
-        box.appendChild(div);
+        }
 
     });
 
+    document.getElementById("cultureResult")
+        .textContent =
+        subjects["Culture générale"].correct
+        +"/"
+        +subjects["Culture générale"].total
+        +" — "
+        +
+        Math.round(
+            subjects["Culture générale"].correct /
+            subjects["Culture générale"].total *
+            100
+        )
+        +"%";
+
+    document.getElementById("frenchResult")
+        .textContent =
+        subjects["Français"].correct
+        +"/"
+        +subjects["Français"].total
+        +" — "
+        +
+        Math.round(
+            subjects["Français"].correct /
+            subjects["Français"].total *
+            100
+        )
+        +"%";
+
+    document.getElementById("englishResult")
+        .textContent =
+        subjects["English"].correct
+        +"/"
+        +subjects["English"].total
+        +" — "
+        +
+        Math.round(
+            subjects["English"].correct /
+            subjects["English"].total *
+            100
+        )
+        +"%";
+
+    document.getElementById("mathResult")
+        .textContent =
+        subjects["Maths / Logique"].correct
+        +"/"
+        +subjects["Maths / Logique"].total
+        +" — "
+        +
+        Math.round(
+            subjects["Maths / Logique"].correct /
+            subjects["Maths / Logique"].total *
+            100
+        )
+        +"%";
 }
 
 
-/* ==========================================================
-   CARNET D'ERREURS
-========================================================== */
+/* =========================================================
+   ERREURS
+========================================================= */
 
-function showErrors(){
+function displayErrors(){
 
-    const box =
-    document.getElementById("errors");
+    const container =
+        document.getElementById("errors");
 
-    box.innerHTML = "";
+    container.innerHTML = "";
 
     const errors =
-    answers.filter(
-        a => !a.isCorrect
-    );
+        answers.filter(
+            answer=>!answer.isCorrect
+        );
 
     if(errors.length === 0){
 
-        box.innerHTML =
-        "<div class='result-line correct'>" +
-        "Aucune erreur. Toutes les réponses sont correctes." +
-        "</div>";
+        container.innerHTML =
+        `
+        <div class="result-box">
+        <strong class="correct">
+        100 % — Aucune erreur.
+        </strong>
+        </div>
+        `;
 
         return;
     }
 
-    errors.forEach(function(error){
+    errors.forEach(error=>{
 
         const div =
-        document.createElement("div");
+            document.createElement("div");
 
-        div.className =
-        "error";
+        div.className = "error";
 
-        div.innerHTML =
+        div.innerHTML = `
 
-        "<strong>Question "
-        + error.number
-        + " — "
-        + error.subject
-        + "</strong>"
+        <strong>
+        Question ${error.number}
+        — ${error.subject}
+        </strong>
 
-        + "<p>"
-        + error.question
-        + "</p>"
+        <p>
+        ${error.question}
+        </p>
 
-        + "<p>"
-        + "<strong>Votre réponse :</strong> "
-        + error.selected
-        + "</p>"
+        <p>
+        <span class="incorrect">
+        Votre réponse :
+        </span>
+        ${error.selected}
+        </p>
 
-        + "<p>"
-        + "<strong>Bonne réponse :</strong> "
-        + error.correct
-        + "</p>";
+        <p>
+        <span class="correct">
+        Bonne réponse :
+        </span>
+        ${error.correct}
+        </p>
 
-        box.appendChild(div);
+        `;
+
+        container.appendChild(div);
+
+    });
+}
+
+
+/* =========================================================
+   COPIER RESULTATS
+========================================================= */
+
+function copyResults(){
+
+    const percentage =
+        Math.round(
+            score/questions.length*100
+        );
+
+    let text =
+    "PRÉPARATION EXCELLENTIA RDC — By N.T\n\n";
+
+    text +=
+    "Candidat : "
+    +candidate
+    +"\n";
+
+    text +=
+    "Score : "
+    +score
+    +"/100\n";
+
+    text +=
+    "Pourcentage : "
+    +percentage
+    +"%\n\n";
+
+    text +=
+    "Erreurs :\n";
+
+    answers
+    .filter(a=>!a.isCorrect)
+    .forEach(a=>{
+
+        text +=
+        "\nQuestion "
+        +a.number
+        +" — "
+        +a.subject
+        +"\n";
+
+        text +=
+        a.question
+        +"\n";
+
+        text +=
+        "Votre réponse : "
+        +a.selected
+        +"\n";
+
+        text +=
+        "Bonne réponse : "
+        +a.correct
+        +"\n";
 
     });
 
+    navigator.clipboard
+    .writeText(text)
+    .then(()=>{
+
+        document.getElementById("copyMessage")
+            .textContent =
+            "Résultats copiés.";
+
+    })
+    .catch(()=>{
+
+        alert(
+            "Impossible de copier automatiquement les résultats."
+        );
+
+    });
 }
+
+
+/* =========================================================
+   SYSTEME ANTI-TRICHE
+========================================================= */
+
+/*
+   Le test ne commence réellement qu'après
+   l'appui sur COMMENCER.
+
+   Toute perte de visibilité pendant le test
+   déclenche le verrouillage.
+*/
+
+document.addEventListener(
+    "visibilitychange",
+    function(){
+
+        const started =
+            sessionStorage.getItem(
+                "excellentia_started"
+            );
+
+        if(
+            started === "true" &&
+            !locked &&
+            document.visibilityState === "hidden"
+        ){
+
+            lockTest();
+
+        }
+
+    }
+);
+
+
+function lockTest(){
+
+    if(locked){
+        return;
+    }
+
+    locked = true;
+
+    clearInterval(questionTimer);
+
+    sessionStorage.setItem(
+        "excellentia_locked",
+        "true"
+    );
+
+    document.getElementById("test")
+        .classList.add("hidden");
+
+    document.getElementById("readingModal")
+        .classList.add("hidden");
+
+    document.getElementById("locked")
+        .classList.remove("hidden");
+}
+
+
+/* =========================================================
+   SECURITE SUPPLEMENTAIRE
+========================================================= */
+
+window.addEventListener(
+    "pageshow",
+    function(){
+
+        const lockedState =
+            sessionStorage.getItem(
+                "excellentia_locked"
+            );
+
+        if(lockedState === "true"){
+
+            locked = true;
+
+            document.getElementById("home")
+                .classList.add("hidden");
+
+            document.getElementById("test")
+                .classList.add("hidden");
+
+            document.getElementById("results")
+                .classList.add("hidden");
+
+            document.getElementById("locked")
+                .classList.remove("hidden");
+
+        }
+
+    }
+);
 
 </script>
 
 </body>
-  </html>
+    </html>
